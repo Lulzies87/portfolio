@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  text-align: center;
+}
+
+.green {
+  background-color: darkslategrey;
+}
+
+.blue {
+  background-color: #213547;
+}
+
+.content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 8rem 3rem;
+}
+
+.skillsList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 4rem;
+}
