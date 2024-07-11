@@ -3,7 +3,7 @@ import styles from "./Contact.module.scss";
 export default function Contact() {
   return (
     <div className="blue">
-      <div className="content">
+      <div id="contact" className="content">
         <h1>Contact Me</h1>
         <form className={styles.formContainer}>
           <div className={styles.formField}>

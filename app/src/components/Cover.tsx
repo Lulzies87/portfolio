@@ -2,7 +2,7 @@ export default function Cover() {
   return (
     <div className="blue">
       <div className="content cover">
-        <div className="summary">
+        <div id="cover" className="summary">
           <h1>Hi! I'm Lilach Elayza</h1>
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus

@@ -20,10 +20,3 @@
   margin: 0 auto;
   padding: 8rem 3rem;
 }
-
-.skillsList {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 4rem;
-}
