@@ -1,9 +1,11 @@
+import styles from "./Header.module.scss";
+
 export default function Header() {
   return (
     <div className="green">
-      <div className="content header">
+      <div className={`${styles.header} content`}>
         <div>Lilach Elayza</div>
-        <div className="linksContainer">
+        <div className={styles.linksContainer}>
           <button
             onClick={() => {
               const element = document.getElementById("cover");

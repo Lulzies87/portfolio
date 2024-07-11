@@ -60,28 +60,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
-.header {
-  padding: 2rem 3rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.linksContainer {
-  display: flex;
-  gap: 2rem;
-}
-
-.cover {
-  display: flex;
-  gap: 10rem;
-}
-
-.summary {
-  text-align: left;
-}
-
-img.rounded {
-  border-radius: 50%;
-  object-fit: cover;
-}

@@ -1,0 +1,13 @@
+.cover {
+    display: flex;
+    gap: 10rem;
+}
+
+.summary {
+    text-align: left;
+}
+
+img.rounded {
+    border-radius: 50%;
+    object-fit: cover;
+}
