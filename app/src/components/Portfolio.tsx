@@ -4,7 +4,7 @@ import styles from "./Portfolio.module.scss";
 export default function Portfolio() {
   return (
     <div className="green">
-      <div id="portfolio" className="content">
+      <div id="portfolio" className="section content">
         <h1>Portfolio</h1>
         <div className={styles.projectsWheel}>
           <Project title="Project 1" imageUrl="https://picsum.photos/200/200">

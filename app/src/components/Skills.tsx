@@ -29,7 +29,7 @@ export default function Skills() {
   };
 
   return (
-    <div className={`${styles.skillsContainer} content`}>
+    <div className={`${styles.skillsContainer} section content`}>
       <button className={styles.scrollButton} onClick={scrollLeft}>
         {"<"}
       </button>

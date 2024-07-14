@@ -3,7 +3,7 @@ import styles from "./Cover.module.scss";
 export default function Cover() {
   return (
     <div className="blue">
-      <div className={`${styles.cover} content`}>
+      <div className={`${styles.cover} content section`}>
         <div id="cover" className={styles.summary}>
           <h1>Hi! I'm Lilach Elayza</h1>
           <p>

@@ -3,7 +3,7 @@ import styles from "./Header.module.scss";
 export default function Header() {
   return (
     <div className="green">
-      <div className={styles.header}>
+      <div className={`${styles.header} content`}>
         <div>Lilach Elayza</div>
         <div className={styles.linksContainer}>
           <button
