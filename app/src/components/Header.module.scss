@@ -1,11 +1,44 @@
 .header {
-    padding: 2rem 3rem;
+    padding: 0.6rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    user-select: none;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 .linksContainer {
     display: flex;
     gap: 2rem;
+}
+
+.navLink {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    position: relative;
+}
+
+.navLink::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    left: 0;
+    bottom: -2px;
+    transition: width 0.25s;
+}
+
+.navLink:hover::after {
+    width: 100%;
 }

@@ -14,14 +14,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.87);
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
+h1 {
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 body {
@@ -29,30 +24,4 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-}
-
-button {
-  background-color: transparent;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  padding: 0;
-  position: relative;
-}
-
-button::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 1px;
-  background-color: currentColor;
-  left: 0;
-  bottom: -2px;
-  transition: width 0.25s;
-}
-
-button:hover::after {
-  width: 100%;
 }
