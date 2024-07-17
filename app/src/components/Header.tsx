@@ -81,13 +81,13 @@ export default function Header() {
           <button
             className={styles.navLink}
             onClick={() => {
-              const element = document.getElementById("portfolio");
+              const element = document.getElementById("projects");
               element?.scrollIntoView({
                 behavior: "smooth",
               });
             }}
           >
-            Portfolio
+            Projects
           </button>
           <button
             className={styles.navLink}

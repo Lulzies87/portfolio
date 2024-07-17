@@ -1,11 +1,11 @@
 import Project from "./Project";
-import styles from "./Portfolio.module.scss";
+import styles from "./Projects.module.scss";
 
-export default function Portfolio() {
+export default function Projects() {
   return (
     <div className="green">
-      <div id="portfolio" className="section content">
-        <h1>Portfolio</h1>
+      <div id="projects" className="section content">
+        <h1>Projects</h1>
         <div className={styles.projectsWheel}>
           <Project title="Project 1" imageUrl="https://picsum.photos/200/200">
             <p>React</p>
