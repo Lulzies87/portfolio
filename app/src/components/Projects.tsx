@@ -6,7 +6,7 @@ export default function Projects() {
     <div className="green">
       <div id="projects" className="section content">
         <h1>Projects</h1>
-        <div className={styles.projectsWheel}>
+        <div className={styles.projectsGallery}>
           <Project title="Project 1" imageUrl="https://picsum.photos/200/200">
             <p>React</p>
             <p>Node.js</p>
