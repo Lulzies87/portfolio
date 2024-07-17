@@ -4,17 +4,17 @@ import Experience from "./components/Experience";
 import Header from "./components/Header";
 import Portfolio from "./components/Portfolio";
 import Skills from "./components/Skills";
-import "./App.css";
+import "./App.scss";
 
 export default function App() {
   return (
     <>
-        <Header />
-        <Cover />
-        <Skills />
-        <Experience />
-        <Portfolio />
-        <Contact />
+      <Header />
+      <Cover />
+      <Skills />
+      <Experience />
+      <Portfolio />
+      <Contact />
     </>
   );
 }

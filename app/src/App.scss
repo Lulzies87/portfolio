@@ -1,3 +1,5 @@
+@import "colors";
+
 * {
   box-sizing: border-box;
 }
@@ -8,17 +10,16 @@
 }
 
 .green {
-  background-color: darkslategrey;
+  background-color: $background1-color;
 }
 
 .blue {
-  background-color: #213547;
+  background-color: $background2-color;
 }
 
 .content {
   max-width: 1280px;
   margin: 0 auto;
-  /* padding: 8rem 3rem; */
 }
 
 .section {
