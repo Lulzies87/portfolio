@@ -1,16 +1,4 @@
 import { useRef } from "react";
-import htmlIcon from "../assets/icons/html.png";
-import cssIcon from "../assets/icons/css.png";
-import javascriptIcon from "../assets/icons/javascript.png";
-import typescriptIcon from "../assets/icons/typescript.png";
-import reactIcon from "../assets/icons/react.png";
-import nodejsIcon from "../assets/icons/nodejs.png";
-import expressIcon from "../assets/icons/express.png";
-import mongodbIcon from "../assets/icons/mongodb.png";
-import mysqlIcon from "../assets/icons/mysql.png";
-import gitIcon from "../assets/icons/git.png";
-import githubIcon from "../assets/icons/github.png";
-import npmIcon from "../assets/icons/npm.png";
 import styles from "./Skills.module.scss";
 
 export default function Skills() {
@@ -39,40 +27,40 @@ export default function Skills() {
           <div id="skills" className={styles.skillsContent} ref={skillsRef}>
             <ul className={styles.skillsList}>
               <li>
-                <img src={htmlIcon} alt="html5 icon" />
+                <img src="/images/icons/html.png" alt="html5 icon" />
               </li>
               <li>
-                <img src={javascriptIcon} alt="javascript icon" />
+                <img src="/images/icons/javascript.png" alt="javascript icon" />
               </li>
               <li>
-                <img src={typescriptIcon} alt="typescript icon" />
+                <img src="/images/icons/typescript.png" alt="typescript icon" />
               </li>
               <li>
-                <img src={cssIcon} alt="css icon" />
+                <img src="/images/icons/css.png" alt="css icon" />
               </li>
               <li>
-                <img src={reactIcon} alt="react icon" />
+                <img src="/images/icons/react.png" alt="react icon" />
               </li>
               <li>
-                <img src={nodejsIcon} alt="nodejs icon" />
+                <img src="/images/icons/nodejs.png" alt="nodejs icon" />
               </li>
               <li>
-                <img src={expressIcon} alt="express icon" />
+                <img src="/images/icons/express.png" alt="express icon" />
               </li>
               <li>
-                <img src={mongodbIcon} alt="mongodb icon" />
+                <img src="/images/icons/mongodb.png" alt="mongodb icon" />
               </li>
               <li>
-                <img src={mysqlIcon} alt="mysql icon" />
+                <img src="/images/icons/mysql.png" alt="mysql icon" />
               </li>
               <li>
-                <img src={gitIcon} alt="git icon" />
+                <img src="/images/icons/git.png" alt="git icon" />
               </li>
               <li>
-                <img src={githubIcon} alt="github icon" />
+                <img src="/images/icons/github.png" alt="github icon" />
               </li>
               <li>
-                <img src={npmIcon} alt="npm icon" />
+                <img src="/images/icons/npm.png" alt="npm icon" />
               </li>
             </ul>
           </div>
