@@ -18,7 +18,7 @@ export default function Cover() {
         </div>
         <div>
           <img
-            src="https://picsum.photos/300/300"
+            src="/images/profilePicture.jpeg"
             alt="random picture"
             className={styles.rounded}
           />

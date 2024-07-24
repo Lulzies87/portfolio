@@ -10,7 +10,7 @@ export default function Project({ title, imageUrl, children }: ProjectProps) {
   return (
     <div className={styles.projectContainer}>
       <h2>{title}</h2>
-      <img src={imageUrl} alt="random picture" />
+      <img src={imageUrl} alt="project picture" />
       {children}
     </div>
   );
