@@ -17,7 +17,7 @@ export default function Skills() {
   };
 
   return (
-    <div className="green">
+    <div className="background-light">
       <div className="section content">
         <h1>Skills</h1>
         <div className={styles.skillsContainer}>

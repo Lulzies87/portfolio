@@ -67,7 +67,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="blue">
+    <div className="background-dark">
       <div id="contact" className="content section">
         <h1>Contact Me</h1>
         <form

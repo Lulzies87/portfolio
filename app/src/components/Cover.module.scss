@@ -1,14 +1,36 @@
-.cover {
+.coverContainer {
     display: flex;
     align-items: center;
-    gap: 10rem;
+    gap: 5rem;
 }
 
-.summary {
+.storyContainer {
     text-align: left;
+    display: flex;
+    flex-direction: column;
 }
 
-img.rounded {
+.storyLine {
+    font-size: 1.3rem;
+    animation: fade-in-out 8s infinite;
+    margin: 0;
+}
+
+@keyframes fade-in-out {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    10%,
+    90% {
+        opacity: 1;
+    }
+}
+
+.profilePicture {
+    max-width: 25vw;
     border-radius: 50%;
     object-fit: cover;
 }
