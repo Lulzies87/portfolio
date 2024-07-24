@@ -44,63 +44,76 @@ export default function Header() {
           </svg>
           <h1>Lilach Elayza</h1>
         </div>
-        <div className={styles.linksContainer}>
-          <button
-            className={styles.navLink}
-            onClick={() => {
-              const element = document.getElementById("cover");
-              element?.scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
-          >
-            Home
-          </button>
-          <button
-            className={styles.navLink}
-            onClick={() => {
-              const element = document.getElementById("skills");
-              element?.scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
-          >
-            Skills
-          </button>
-          <button
-            className={styles.navLink}
-            onClick={() => {
-              const element = document.getElementById("experience");
-              element?.scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
-          >
-            Experience
-          </button>
-          <button
-            className={styles.navLink}
-            onClick={() => {
-              const element = document.getElementById("projects");
-              element?.scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
-          >
-            Projects
-          </button>
-          <button
-            className={styles.navLink}
-            onClick={() => {
-              const element = document.getElementById("contact");
-              element?.scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
-          >
-            Contact Me
-          </button>
-        </div>
+
+        <nav>
+          <ul className={styles.navigationBar}>
+            <li>
+              <button
+                className={styles.navLink}
+                onClick={() => {
+                  const element = document.getElementById("cover");
+                  element?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <button
+                className={styles.navLink}
+                onClick={() => {
+                  const element = document.getElementById("skills");
+                  element?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                Skills
+              </button>
+            </li>
+            <li>
+              <button
+                className={styles.navLink}
+                onClick={() => {
+                  const element = document.getElementById("experience");
+                  element?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                Experience
+              </button>
+            </li>
+            <li>
+              <button
+                className={styles.navLink}
+                onClick={() => {
+                  const element = document.getElementById("projects");
+                  element?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                Projects
+              </button>
+            </li>
+            <li>
+              <button
+                className={styles.navLink}
+                onClick={() => {
+                  const element = document.getElementById("contact");
+                  element?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                Contact Me
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   );

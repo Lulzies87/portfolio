@@ -12,9 +12,11 @@
     gap: 0.4rem;
 }
 
-.linksContainer {
+.navigationBar {
     display: flex;
     gap: 2rem;
+    list-style: none;
+    padding: 0;
 }
 
 .navLink {
