@@ -1,5 +1,14 @@
 @import "../colors";
 
+.jobDescription {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    li {
+        margin-top: 0.6rem;
+    }
+}
+
 .timeline {
     position: relative;
     max-width: 1200px;
