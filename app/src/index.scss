@@ -3,13 +3,7 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  // font-weight: 400;
-
-  // color-scheme: light dark;
   color: $text-color;
-
-  // font-synthesis: none;
-  // text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -20,8 +14,14 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 0;
 }
 
 body {
