@@ -31,8 +31,20 @@ export default function Cover() {
             className={styles.profilePicture}
           />
           <div className={styles.storyContainer}>
-            <h1>Hi! I'm Lilach,</h1>
-            <p className={styles.storyLine}>{lines[currentLine]}</p>
+            <div className={styles.titleContainer}>
+              <h1 className={styles.title}>Hi! I'm Lilach,</h1>
+            </div>
+            <div className={styles.linesContainer}>
+              <p className={styles.storyLine}>{lines[currentLine]}</p>
+            </div>
+            <div className={styles.navButtonsContainer}>
+              <button
+                className={`${styles.scrollButton} ${styles.prevLine}`}
+              ></button>
+              <button
+                className={`${styles.scrollButton} ${styles.nextLine}`}
+              ></button>
+            </div>
           </div>
         </div>
       </div>
