@@ -18,13 +18,13 @@ export default function Skills() {
 
   return (
     <div className="background-light">
-      <div className="section content">
+      <div id="skills" className="section content">
         <h1>Skills</h1>
         <div className={styles.skillsContainer}>
           <button className={styles.scrollButton} onClick={scrollLeft}>
             {"<"}
           </button>
-          <div id="skills" className={styles.skillsContent} ref={skillsRef}>
+          <div className={styles.skillsContent} ref={skillsRef}>
             <ul className={styles.skillsList}>
               <li>
                 <img src="/images/icons/html.png" alt="html5 icon" />
