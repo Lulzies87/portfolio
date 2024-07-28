@@ -15,15 +15,13 @@
 }
 
 .inputField {
+    font-family: "Quicksand", sans-serif;
+    color: $text-color;
     padding: 14px;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: inherit;
     background-color: $background1-color;
-
-    &:focus {
-        // background-color: $background1-color;
-    }
 }
 
 .submitButton {
@@ -32,7 +30,8 @@
     border: none;
     border-radius: 5px;
     padding: 0.8rem;
-    font-size: 1.2rem;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.1rem;
     font-weight: 600;
     width: 150px;
     margin: 0 auto;
@@ -40,5 +39,11 @@
 
     &:hover {
         background-color: $secondary-color;
+    }
+}
+
+@media (max-width: 899px) {
+    .inputField {
+        font-size: 0.9rem;
     }
 }
