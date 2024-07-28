@@ -26,3 +26,9 @@
   margin: 0 auto;
   padding: 8rem 3rem;
 }
+
+@media (max-width: 899px) {
+  .section {
+    padding: 4rem 1rem;
+  }
+}
