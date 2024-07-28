@@ -3,6 +3,7 @@ import styles from "./Cover.module.scss";
 
 export default function Cover() {
   const [currentLine, setCurrentLine] = useState(0);
+  const [animate, setAnimate] = useState(false);
 
   const lines = [
     "I'm a mother, wife, coder, and gamer.",
@@ -16,9 +17,24 @@ export default function Cover() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
+      setAnimate(true);
       setCurrentLine((prevLine) => (prevLine + 1) % lines.length);
     }, 8000);
     return () => clearTimeout(timer);
+  }, [currentLine]);
+
+  const handleNextLine = () => {
+    setAnimate(false);
+    setCurrentLine((prevLine) => (prevLine + 1) % lines.length);
+  };
+
+  const handlePrevLine = () => {
+    setAnimate(false);
+    setCurrentLine((prevLine) => (prevLine - 1 + lines.length) % lines.length);
+  };
+
+  useEffect(() => {
+    setAnimate(true);
   }, [currentLine]);
 
   return (
@@ -35,14 +51,20 @@ export default function Cover() {
               <h1 className={styles.title}>Hi! I'm Lilach,</h1>
             </div>
             <div className={styles.linesContainer}>
-              <p className={styles.storyLine}>{lines[currentLine]}</p>
+              <p
+                className={`${styles.storyLine} ${animate ? styles.animate : ''}`}
+              >
+                {lines[currentLine]}
+              </p>
             </div>
             <div className={styles.navButtonsContainer}>
               <button
                 className={`${styles.scrollButton} ${styles.prevLine}`}
+                onClick={handlePrevLine}
               ></button>
               <button
                 className={`${styles.scrollButton} ${styles.nextLine}`}
+                onClick={handleNextLine}
               ></button>
             </div>
           </div>
