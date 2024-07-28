@@ -6,13 +6,17 @@ export default function Skills() {
 
   const scrollLeft = () => {
     if (skillsRef.current) {
-      skillsRef.current.scrollBy({ left: -1800, behavior: "smooth" });
+      const itemWidth =
+        skillsRef.current.firstElementChild?.clientWidth || 1800;
+      skillsRef.current.scrollBy({ left: -itemWidth, behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     if (skillsRef.current) {
-      skillsRef.current.scrollBy({ left: 1800, behavior: "smooth" });
+      const itemWidth =
+        skillsRef.current.firstElementChild?.clientWidth || 1800;
+      skillsRef.current.scrollBy({ left: itemWidth, behavior: "smooth" });
     }
   };
 

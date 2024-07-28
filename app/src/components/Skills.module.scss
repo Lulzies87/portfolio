@@ -18,6 +18,10 @@
     white-space: nowrap;
     width: calc(100% - 4rem);
     scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .skillsList {
@@ -36,5 +40,13 @@
     & img {
         max-width: 100%;
         height: auto;
+    }
+}
+
+@media (max-width: 899px) {
+    .skillsList {
+        & li {
+            width: calc(100% / 4);
+        }
     }
 }
