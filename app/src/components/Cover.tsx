@@ -16,26 +16,27 @@ export default function Cover() {
   ];
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimate(true);
-      setCurrentLine((prevLine) => (prevLine + 1) % lines.length);
+    setAnimate(false);
+    const timer1 = setTimeout(() => setAnimate(true), 10);
+    const timer2 = setTimeout(() => {
+      showNextLine();
     }, 8000);
-    return () => clearTimeout(timer);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
   }, [currentLine]);
 
-  const handleNextLine = () => {
+  const showNextLine = () => {
     setAnimate(false);
     setCurrentLine((prevLine) => (prevLine + 1) % lines.length);
   };
 
-  const handlePrevLine = () => {
+  const showPrevLine = () => {
     setAnimate(false);
     setCurrentLine((prevLine) => (prevLine - 1 + lines.length) % lines.length);
   };
-
-  useEffect(() => {
-    setAnimate(true);
-  }, [currentLine]);
 
   return (
     <div className="background-dark">
@@ -52,7 +53,10 @@ export default function Cover() {
             </div>
             <div className={styles.linesContainer}>
               <p
-                className={`${styles.storyLine} ${animate ? styles.animate : ''}`}
+                key={currentLine}
+                className={`${styles.storyLine} ${
+                  animate ? styles.animate : ""
+                }`}
               >
                 {lines[currentLine]}
               </p>
@@ -60,11 +64,11 @@ export default function Cover() {
             <div className={styles.navButtonsContainer}>
               <button
                 className={`${styles.scrollButton} ${styles.prevLine}`}
-                onClick={handlePrevLine}
+                onClick={showPrevLine}
               ></button>
               <button
                 className={`${styles.scrollButton} ${styles.nextLine}`}
-                onClick={handleNextLine}
+                onClick={showNextLine}
               ></button>
             </div>
           </div>
