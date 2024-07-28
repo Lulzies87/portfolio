@@ -40,7 +40,7 @@ export default function Cover() {
 
   return (
     <div className="background-dark">
-      <div className="content section">
+      <div id="cover" className="content section">
         <div className={styles.coverContainer}>
           <img
             src="/images/profilePicture.jpeg"

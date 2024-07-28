@@ -2,7 +2,7 @@ import styles from "./Header.module.scss";
 
 export default function Header() {
   return (
-    <div className="background-light">
+    <div className={`background-light ${styles.static}`}>
       <div className={`${styles.header} content`}>
         <div className={styles.titleContainer}>
           <svg
