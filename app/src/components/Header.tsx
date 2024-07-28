@@ -55,7 +55,7 @@ export default function Header() {
               ></path>{" "}
             </g>
           </svg>
-          <h1>Lilach Elayza</h1>
+          <h1>Lilach Fainerman</h1>
         </div>
 
         <div className={styles.hamburger} onClick={toggleMenu}>
