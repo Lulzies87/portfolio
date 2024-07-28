@@ -1,3 +1,5 @@
+@import "../colors";
+
 .header {
     padding: 0.6rem 3rem;
     display: flex;
@@ -18,7 +20,31 @@
     gap: 0.4rem;
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 2px;
+    background-color: $text-color;
+    margin: 3px 0;
+}
+
 .navigationBar {
+    display: flex;
+    list-style: none;
+
+}
+
+.navigationBar.open {
+    display: block;
+}
+
+.navLinks {
     display: flex;
     gap: 2rem;
     list-style: none;
@@ -49,4 +75,40 @@
 
 .navLink:hover::after {
     width: 100%;
+}
+
+@media (max-width: 899px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .navigationBar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 92px;
+        right: 0;
+        background-color: $background1-color;
+        width: 14ch;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .navigationBar.open {
+        display: flex;
+    }
+
+    .navLinks {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .navLink {
+        text-align: center;
+        width: 100%;
+    }
+
+    .navLink:hover::after {
+        margin: 0 30%;
+        width: 40%;
+    }
 }

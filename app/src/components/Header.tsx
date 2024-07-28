@@ -1,6 +1,13 @@
+import { useState } from "react";
 import styles from "./Header.module.scss";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <div className={`background-light ${styles.static}`}>
       <div className={`${styles.header} content`}>
@@ -51,8 +58,16 @@ export default function Header() {
           <h1>Lilach Elayza</h1>
         </div>
 
-        <nav>
-          <ul className={styles.navigationBar}>
+        <div className={styles.hamburger} onClick={toggleMenu}>
+          <div className={styles.line}></div>
+          <div className={styles.line}></div>
+          <div className={styles.line}></div>
+        </div>
+
+        <nav
+          className={`${styles.navigationBar} ${menuOpen ? styles.open : ""}`}
+        >
+          <ul className={styles.navLinks}>
             <li>
               <button
                 className={styles.navLink}
