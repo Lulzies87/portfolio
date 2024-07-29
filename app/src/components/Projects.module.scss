@@ -1,6 +1,11 @@
 .projectsGallery {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
     flex-wrap: wrap;
+}
+
+.technologiesList {
+    list-style: none;
+    padding: 0;
 }
