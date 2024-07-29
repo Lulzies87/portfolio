@@ -72,6 +72,7 @@ export default function Header() {
               <button
                 className={styles.navLink}
                 onClick={() => {
+                  toggleMenu();
                   const element = document.getElementById("cover");
                   element?.scrollIntoView({
                     behavior: "smooth",
@@ -85,6 +86,7 @@ export default function Header() {
               <button
                 className={styles.navLink}
                 onClick={() => {
+                  toggleMenu();
                   const element = document.getElementById("skills");
                   element?.scrollIntoView({
                     behavior: "smooth",
@@ -98,6 +100,7 @@ export default function Header() {
               <button
                 className={styles.navLink}
                 onClick={() => {
+                  toggleMenu();
                   const element = document.getElementById("experience");
                   element?.scrollIntoView({
                     behavior: "smooth",
@@ -111,6 +114,7 @@ export default function Header() {
               <button
                 className={styles.navLink}
                 onClick={() => {
+                  toggleMenu();
                   const element = document.getElementById("projects");
                   element?.scrollIntoView({
                     behavior: "smooth",
@@ -124,6 +128,7 @@ export default function Header() {
               <button
                 className={styles.navLink}
                 onClick={() => {
+                  toggleMenu();
                   const element = document.getElementById("contact");
                   element?.scrollIntoView({
                     behavior: "smooth",
