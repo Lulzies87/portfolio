@@ -1,57 +1,52 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Skills.module.scss";
 
 export default function Skills() {
   const skillsRef = useRef<HTMLDivElement>(null);
-
-  const updateScroll = () => {
-    if (skillsRef.current) {
-      const container = skillsRef.current;
-      const itemWidth = container.firstElementChild?.clientWidth || 1800;
-      const maxScrollLeft = container.scrollWidth - container.clientWidth;
-
-      if (container.scrollLeft + itemWidth > maxScrollLeft) {
-        container.scrollLeft = maxScrollLeft;
-      }
-    }
-  };
-
-  const scrollLeft = () => {
-    if (skillsRef.current) {
-      const itemWidth =
-        skillsRef.current.firstElementChild?.clientWidth || 1800;
-      skillsRef.current.scrollBy({ left: -itemWidth, behavior: "smooth" });
-    }
-  };
-
-  const scrollRight = () => {
-    if (skillsRef.current) {
-      const container = skillsRef.current;
-      const itemWidth = container.firstElementChild?.clientWidth || 1800;
-      const maxScrollLeft = container.scrollWidth - container.clientWidth;
-
-      if (container.scrollLeft + itemWidth >= maxScrollLeft) {
-        container.scrollLeft = maxScrollLeft;
-      } else {
-        container.scrollBy({ left: itemWidth, behavior: "smooth" });
-      }
-    }
-  };
+  const [scrollDirection, setScrollDirection] = useState<"right" | "left">(
+    "right"
+  );
 
   useEffect(() => {
-    window.addEventListener("resize", updateScroll);
-    return () => window.removeEventListener("resize", updateScroll);
-  }, []);
+    let intervalId: number;
+
+    const startAutoScroll = () => {
+      intervalId = window.setInterval(() => {
+        if (skillsRef.current) {
+          const container = skillsRef.current;
+          const maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+          if (scrollDirection === "right") {
+            if (container.scrollLeft >= maxScrollLeft) {
+              setScrollDirection("left");
+            } else {
+              container.scrollBy({ left: 1, behavior: "instant" });
+            }
+          } else {
+            if (container.scrollLeft <= 0) {
+              setScrollDirection("right");
+            } else {
+              container.scrollBy({ left: -1, behavior: "instant" });
+            }
+          }
+        }
+      }, 20);
+    };
+
+    const stopAutoScroll = () => clearInterval(intervalId);
+
+    startAutoScroll();
+
+    return () => {
+      stopAutoScroll();
+    };
+  }, [scrollDirection]);
 
   return (
     <div className="background-light">
       <div id="skills" className="section content">
         <h1>Skills</h1>
         <div className={styles.skillsContainer}>
-          <button
-            className={`${styles.scrollButton} ${styles.scrollLeft}`}
-            onClick={scrollLeft}
-          ></button>
           <div className={styles.skillsContent} ref={skillsRef}>
             <ul className={styles.skillsList}>
               <li>
@@ -140,10 +135,6 @@ export default function Skills() {
               </li>
             </ul>
           </div>
-          <button
-            className={`${styles.scrollButton} ${styles.scrollRight}`}
-            onClick={scrollRight}
-          ></button>
         </div>
       </div>
     </div>

@@ -3,25 +3,7 @@
 .skillsContainer {
     display: flex;
     align-items: center;
-}
-
-.scrollButton {
-    background-color: transparent;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-}
-
-.scrollLeft {
-    background-image: url('/images/icons/leftArrow.png');
-}
-
-.scrollRight {
-    background-image: url('/images/icons/rightArrow.png');
+    justify-content: center;
 }
 
 .skillsContent {
