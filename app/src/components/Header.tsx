@@ -1,15 +1,37 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./Header.module.scss";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const scrollToSection = (id: string) => {
+    if (menuOpen) {
+      toggleMenu();
+    }
+
+    const element = document.getElementById(id);
+    if (element) {
+      const headerHeight = headerRef.current
+        ? headerRef.current.offsetHeight
+        : 0;
+
+      const elementPosition =
+        element?.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: elementPosition - headerHeight,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className={`background-light ${styles.static}`}>
+    <div ref={headerRef} className={`background-light ${styles.static}`}>
       <div className={`${styles.header} content`}>
         <div className={styles.titleContainer}>
           <svg
@@ -71,13 +93,7 @@ export default function Header() {
             <li>
               <button
                 className={styles.navLink}
-                onClick={() => {
-                  toggleMenu();
-                  const element = document.getElementById("cover");
-                  element?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                }}
+                onClick={() => scrollToSection("cover")}
               >
                 Home
               </button>
@@ -85,13 +101,7 @@ export default function Header() {
             <li>
               <button
                 className={styles.navLink}
-                onClick={() => {
-                  toggleMenu();
-                  const element = document.getElementById("skills");
-                  element?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                }}
+                onClick={() => scrollToSection("skills")}
               >
                 Skills
               </button>
@@ -99,13 +109,7 @@ export default function Header() {
             <li>
               <button
                 className={styles.navLink}
-                onClick={() => {
-                  toggleMenu();
-                  const element = document.getElementById("experience");
-                  element?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                }}
+                onClick={() => scrollToSection("experience")}
               >
                 Experience
               </button>
@@ -113,13 +117,7 @@ export default function Header() {
             <li>
               <button
                 className={styles.navLink}
-                onClick={() => {
-                  toggleMenu();
-                  const element = document.getElementById("projects");
-                  element?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                }}
+                onClick={() => scrollToSection("projects")}
               >
                 Projects
               </button>
@@ -127,13 +125,7 @@ export default function Header() {
             <li>
               <button
                 className={styles.navLink}
-                onClick={() => {
-                  toggleMenu();
-                  const element = document.getElementById("contact");
-                  element?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                }}
+                onClick={() => scrollToSection("contact")}
               >
                 Contact Me
               </button>
