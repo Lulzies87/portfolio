@@ -29,40 +29,40 @@ export default function Skills() {
           <div className={styles.skillsContent} ref={skillsRef}>
             <ul className={styles.skillsList}>
               <li>
-                <img src="/images/icons/html.png" alt="html5 icon" />
+                <img src="/images/icons/html.png" draggable="false" alt="html5 icon" />
               </li>
               <li>
-                <img src="/images/icons/javascript.png" alt="javascript icon" />
+                <img src="/images/icons/javascript.png" draggable="false" alt="javascript icon" />
               </li>
               <li>
-                <img src="/images/icons/typescript.png" alt="typescript icon" />
+                <img src="/images/icons/typescript.png" draggable="false" alt="typescript icon" />
               </li>
               <li>
-                <img src="/images/icons/css.png" alt="css icon" />
+                <img src="/images/icons/css.png" draggable="false" alt="css icon" />
               </li>
               <li>
-                <img src="/images/icons/react.png" alt="react icon" />
+                <img src="/images/icons/react.png" draggable="false" alt="react icon" />
               </li>
               <li>
-                <img src="/images/icons/nodejs.png" alt="nodejs icon" />
+                <img src="/images/icons/nodejs.png" draggable="false" alt="nodejs icon" />
               </li>
               <li>
-                <img src="/images/icons/express.png" alt="express icon" />
+                <img src="/images/icons/express.png" draggable="false" alt="express icon" />
               </li>
               <li>
-                <img src="/images/icons/mongodb.png" alt="mongodb icon" />
+                <img src="/images/icons/mongodb.png" draggable="false" alt="mongodb icon" />
               </li>
               <li>
-                <img src="/images/icons/mysql.png" alt="mysql icon" />
+                <img src="/images/icons/mysql.png" draggable="false" alt="mysql icon" />
               </li>
               <li>
-                <img src="/images/icons/git.png" alt="git icon" />
+                <img src="/images/icons/git.png" draggable="false" alt="git icon" />
               </li>
               <li>
-                <img src="/images/icons/github.png" alt="github icon" />
+                <img src="/images/icons/github.png" draggable="false" alt="github icon" />
               </li>
               <li>
-                <img src="/images/icons/npm.png" alt="npm icon" />
+                <img src="/images/icons/npm.png" draggable="false" alt="npm icon" />
               </li>
             </ul>
           </div>

@@ -44,6 +44,7 @@ export default function Cover() {
         <div className={styles.coverContainer}>
           <img
             src="/images/profilePicture.jpeg"
+            draggable="false"
             alt="random picture"
             className={styles.profilePicture}
           />

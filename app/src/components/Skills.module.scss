@@ -36,6 +36,7 @@
 }
 
 .skillsList {
+    user-select: none;
     display: flex;
     list-style: none;
     padding: 0;

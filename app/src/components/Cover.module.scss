@@ -3,6 +3,10 @@
     align-items: center;
     gap: 5rem;
     text-align: center;
+
+    img {
+        user-select: none;
+    }
 }
 
 .storyContainer {
