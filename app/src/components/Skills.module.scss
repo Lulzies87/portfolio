@@ -6,11 +6,22 @@
 }
 
 .scrollButton {
-    background: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     border: none;
-    font-size: 2rem;
+    width: 24px;
+    height: 24px;
     cursor: pointer;
-    color: $text-color;
+}
+
+.scrollLeft {
+    background-image: url('/images/icons/leftArrow.png');
+}
+
+.scrollRight {
+    background-image: url('/images/icons/rightArrow.png');
 }
 
 .skillsContent {
@@ -46,7 +57,7 @@
 @media (max-width: 899px) {
     .skillsList {
         & li {
-            width: calc(100% / 4);
+            width: calc(100% / 3);
         }
     }
 }

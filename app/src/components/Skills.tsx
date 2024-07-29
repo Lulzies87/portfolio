@@ -25,9 +25,7 @@ export default function Skills() {
       <div id="skills" className="section content">
         <h1>Skills</h1>
         <div className={styles.skillsContainer}>
-          <button className={styles.scrollButton} onClick={scrollLeft}>
-            {"<"}
-          </button>
+          <button className={`${styles.scrollButton} ${styles.scrollLeft}`} onClick={scrollLeft}></button>
           <div className={styles.skillsContent} ref={skillsRef}>
             <ul className={styles.skillsList}>
               <li>
@@ -68,9 +66,7 @@ export default function Skills() {
               </li>
             </ul>
           </div>
-          <button className={styles.scrollButton} onClick={scrollRight}>
-            {">"}
-          </button>
+          <button className={`${styles.scrollButton} ${styles.scrollRight}`} onClick={scrollRight}></button>
         </div>
       </div>
     </div>
