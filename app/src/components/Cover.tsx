@@ -43,9 +43,9 @@ export default function Cover() {
       <div id="cover" className="content section">
         <div className={styles.coverContainer}>
           <img
-            src="/images/profilePicture.jpeg"
+            src="/images/profilePicture.png"
             draggable="false"
-            alt="random picture"
+            alt="profile picture"
             className={styles.profilePicture}
           />
           <div className={styles.storyContainer}>
