@@ -34,19 +34,25 @@ export default function Contact() {
 
   const validateFormFields = (formElement: HTMLFormElement): boolean => {
     const formData = new FormData(formElement);
+    let isValid = true;
+
+    formElement.querySelectorAll(`.${styles.formNotice}`).forEach((notice) => {
+      notice.remove();
+    });
 
     if (!formData.get("name")) {
-      console.error("Name is required");
-      return false;
-    }
-
-    const name = (formData.get("name") as string).trim();
-    const nameRegex = /^[A-Za-z\u0590-\u05FF\s'`-]+$/;
-    if (!nameRegex.test(name)) {
-      console.error(
-        "Name can only contain letters (English/Hebrew), spaces, apostrophes(-), backticks(`), and hyphens(')"
-      );
-      return false;
+      isValid = false;
+      showErrorNotice("Name is required", formElement.querySelector("#name"));
+    } else {
+      const name = (formData.get("name") as string).trim();
+      const nameRegex = /^[A-Za-z\u0590-\u05FF\s'`-]+$/;
+      if (!nameRegex.test(name)) {
+        isValid = false;
+        showErrorNotice(
+          "Name can only contain letters (English/Hebrew), spaces, apostrophes(-), backticks(`), and hyphens(')",
+          formElement.querySelector("#name")
+        );
+      }
     }
 
     if (formData.get("email")) {
@@ -54,16 +60,32 @@ export default function Contact() {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       if (!emailRegex.test(email)) {
-        console.error("Please insert a valid email");
+        isValid = false;
+        showErrorNotice(
+          "Please insert a valid email",
+          formElement.querySelector("#email")
+        );
       }
     }
 
     if (!formData.get("message")) {
-      console.error("Message is required");
-      return false;
+      isValid = false;
+      showErrorNotice(
+        "Message is required",
+        formElement.querySelector("#message")
+      );
     }
 
-    return true;
+    return isValid;
+  };
+
+  const showErrorNotice = (message: string, formField: HTMLElement | null) => {
+    if (formField) {
+      const notice = document.createElement("p");
+      notice.className = styles.formNotice;
+      notice.textContent = message;
+      formField.parentElement?.appendChild(notice);
+    }
   };
 
   return (
@@ -90,7 +112,6 @@ export default function Contact() {
             <label htmlFor="email">Email</label>
             <input
               className={styles.inputField}
-              type="email"
               id="email"
               name="email"
               placeholder="Your email"
