@@ -29,7 +29,7 @@
     color: $formfield-color;
     border: none;
     border-radius: 5px;
-    padding: 0.8rem;
+    padding: .8rem;
     font-family: "Quicksand", sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
@@ -47,6 +47,16 @@
     font-weight: 600;
     margin: 0;
     color: red;
+}
+
+.message {
+    background-color: $secondary-color;
+    border-radius: 5px;
+    padding: .6rem;
+    margin-bottom: 1rem;
+    max-width: 50ch;
+    margin: 0 auto 1rem auto;
+    font-weight: 500;
 }
 
 @media (max-width: 899px) {

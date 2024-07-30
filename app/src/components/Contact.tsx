@@ -1,9 +1,11 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import styles from "./Contact.module.scss";
 
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
+  const [message, setMessage] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -13,6 +15,7 @@ export default function Contact() {
     } else {
       const isValid = validateFormFields(form.current);
       if (isValid) {
+        setIsSubmitting(true);
         emailjs
           .sendForm(
             import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -22,10 +25,13 @@ export default function Contact() {
           )
           .then(
             () => {
-              console.log("SUCCESS!");
+              setMessage("Your message was sent. Thank you :)");
+              setIsSubmitting(false);
             },
             (error) => {
-              console.log("FAILED...", error.text);
+              setMessage("Failed to send the message. Please try again later.");
+              setIsSubmitting(false);
+              console.log("Failed to send the message:", error.text);
             }
           );
       }
@@ -92,6 +98,7 @@ export default function Contact() {
     <div className="background-dark">
       <div id="contact" className="content section">
         <h1>Contact Me</h1>
+        {message && <div className={styles.message}>{message}</div>}
         <form
           ref={form}
           onSubmit={handleSubmit}
@@ -105,6 +112,7 @@ export default function Contact() {
               id="name"
               name="name"
               placeholder="Your name"
+              disabled={isSubmitting}
             />
           </div>
 
@@ -115,6 +123,7 @@ export default function Contact() {
               id="email"
               name="email"
               placeholder="Your email"
+              disabled={isSubmitting}
             />
           </div>
 
@@ -126,6 +135,7 @@ export default function Contact() {
               id="phone"
               name="phone"
               placeholder="Your phone"
+              disabled={isSubmitting}
             />
           </div>
 
@@ -138,11 +148,16 @@ export default function Contact() {
               cols={30}
               rows={10}
               maxLength={500}
+              disabled={isSubmitting}
             ></textarea>
           </div>
 
-          <button className={styles.submitButton} type="submit">
-            Send
+          <button
+            className={styles.submitButton}
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Sending..." : "Send"}
           </button>
         </form>
       </div>
