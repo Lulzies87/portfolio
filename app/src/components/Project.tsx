@@ -4,13 +4,21 @@ import styles from "./Project.module.scss";
 type ProjectProps = {
   title: string;
   imageUrl: string;
+  websiteUrl?: string;
   children: ReactNode;
 };
-export default function Project({ title, imageUrl, children }: ProjectProps) {
+export default function Project({
+  title,
+  imageUrl,
+  websiteUrl,
+  children,
+}: ProjectProps) {
   return (
     <div className={styles.projectContainer}>
       <h2>{title}</h2>
-      <img src={imageUrl} alt="project picture" />
+      <a href={websiteUrl} target="_blank">
+        <img src={imageUrl} alt="project picture" />
+      </a>
       {children}
     </div>
   );

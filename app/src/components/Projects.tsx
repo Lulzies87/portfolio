@@ -10,6 +10,7 @@ export default function Projects() {
           <Project
             title="Castle Warrior"
             imageUrl="/images/projects/castleWarrior.png"
+            websiteUrl="https://castlewarrior.lulzies.top/"
           >
             <ul className={styles.technologiesList}>
               <li>
@@ -20,10 +21,8 @@ export default function Projects() {
                   Github
                 </a>
               </li>
+              <li>TypeScript</li>
               <li>Canvas</li>
-              <li>React (vite)</li>
-              <li>Node.js</li>
-              <li>MySQL</li>
             </ul>
           </Project>
           <Project
