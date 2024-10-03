@@ -15,7 +15,7 @@ export default function Projects() {
             <ul className={styles.technologiesList}>
               <li>
                 <a
-                  href="https://github.com/Lulzies87/castleWarrior"
+                  href="https://github.com/Lulzies87/castle-warrior"
                   target="_blank"
                 >
                   Github
