@@ -20,6 +20,12 @@
     gap: 0.4rem;
 }
 
+.bannerButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
