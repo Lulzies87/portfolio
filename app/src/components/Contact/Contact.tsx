@@ -95,72 +95,66 @@ export default function Contact() {
   };
 
   return (
-    <div className="background-dark">
-      <div id="contact" className="content section">
-        <h1>Contact Me</h1>
-        {message && <div className={styles.message}>{message}</div>}
-        <form
-          ref={form}
-          onSubmit={handleSubmit}
-          className={styles.formContainer}
-        >
-          <div className={styles.formField}>
-            <label htmlFor="name">Name*</label>
-            <input
-              className={styles.inputField}
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Your name"
-              disabled={isSubmitting}
-            />
-          </div>
-
-          <div className={styles.formField}>
-            <label htmlFor="email">Email</label>
-            <input
-              className={styles.inputField}
-              id="email"
-              name="email"
-              placeholder="Your email"
-              disabled={isSubmitting}
-            />
-          </div>
-
-          <div className={styles.formField}>
-            <label htmlFor="phone">Phone</label>
-            <input
-              className={styles.inputField}
-              type="tel"
-              id="phone"
-              name="phone"
-              placeholder="Your phone"
-              disabled={isSubmitting}
-            />
-          </div>
-
-          <div className={styles.formField}>
-            <label htmlFor="message">Message*</label>
-            <textarea
-              className={styles.inputField}
-              id="message"
-              name="message"
-              cols={30}
-              rows={10}
-              maxLength={500}
-              disabled={isSubmitting}
-            ></textarea>
-          </div>
-
-          <button
-            className={styles.submitButton}
-            type="submit"
+    <div id="contact" className={`${styles.contactContainer} content`}>
+      <h1>Contact Me</h1>
+      {message && <div className={styles.message}>{message}</div>}
+      <form ref={form} onSubmit={handleSubmit} className={styles.formContainer}>
+        <div className={styles.formField}>
+          <label htmlFor="name">Name*</label>
+          <input
+            className={styles.inputField}
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
             disabled={isSubmitting}
-          >
-            {isSubmitting ? "Sending..." : "Send"}
-          </button>
-        </form>
-      </div>
+          />
+        </div>
+
+        <div className={styles.formField}>
+          <label htmlFor="email">Email</label>
+          <input
+            className={styles.inputField}
+            id="email"
+            name="email"
+            placeholder="Your email"
+            disabled={isSubmitting}
+          />
+        </div>
+
+        <div className={styles.formField}>
+          <label htmlFor="phone">Phone</label>
+          <input
+            className={styles.inputField}
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Your phone"
+            disabled={isSubmitting}
+          />
+        </div>
+
+        <div className={styles.formField}>
+          <label htmlFor="message">Message*</label>
+          <textarea
+            className={styles.inputField}
+            id="message"
+            name="message"
+            cols={30}
+            rows={10}
+            maxLength={500}
+            disabled={isSubmitting}
+          ></textarea>
+        </div>
+
+        <button
+          className={styles.submitButton}
+          type="submit"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Sending..." : "Send"}
+        </button>
+      </form>
     </div>
   );
 }

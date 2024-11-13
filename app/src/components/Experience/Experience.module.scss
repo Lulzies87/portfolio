@@ -1,0 +1,22 @@
+@import "../../colors.scss";
+
+.experienceContainer {
+    min-height: 100vh;
+    align-content: center;
+    position: relative;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        >div:nth-child(odd) {
+            transform: translateX(-50%);
+        }
+
+        >div:nth-child(even) {
+            transform: translateX(50%);
+        }
+    }
+}

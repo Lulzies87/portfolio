@@ -1,7 +1,7 @@
 @import "colors";
 
 :root {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   line-height: 1.5;
@@ -12,6 +12,7 @@
 
 body {
   margin: 0;
+  background-color: $background1-color;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
@@ -33,13 +34,14 @@ h3 {
   margin: 0;
 }
 
-@media (max-width: 899px) {
+@media (max-width: 699px) {
   body {
     font-size: 0.9rem;
   }
 
   h1 {
     font-size: 1.2rem;
+    margin: 1.6rem 0;
   }
 
   h2 {

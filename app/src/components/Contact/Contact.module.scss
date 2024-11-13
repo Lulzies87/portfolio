@@ -1,4 +1,9 @@
-@import "../colors";
+@import "../../colors.scss";
+
+.contactContainer {
+    height: 100vh;
+    align-content: center;
+}
 
 .formContainer {
     margin: 0 auto;
@@ -21,7 +26,6 @@
     border: none;
     border-radius: 5px;
     font-size: inherit;
-    background-color: $background1-color;
 }
 
 .submitButton {

@@ -1,9 +1,10 @@
-import Contact from "./components/Contact";
-import Cover from "./components/Cover";
-import Experience from "./components/Experience";
-import Header from "./components/Header";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
+import Contact from "./components/Contact/Contact";
+import Cover from "./components/Cover/Cover";
+import Experience from "./components/Experience/Experience";
+import Header from "./components/Header/Header";
+import Projects from "./components/Projects/Projects";
+import Skills from "./components/Skills/Skills";
+import About from "./components/About/About";
 import "./App.scss";
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
     <>
       <Header />
       <Cover />
+      <About />
       <Skills />
       <Experience />
       <Projects />

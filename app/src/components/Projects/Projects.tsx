@@ -1,10 +1,9 @@
-import Project from "./Project";
+import Project from "../Project/Project";
 import styles from "./Projects.module.scss";
 
 export default function Projects() {
   return (
-    <div className="background-light">
-      <div id="projects" className="section content">
+      <div id="projects" className={`${styles.projectsContainer} content`}>
         <h1>Projects</h1>
         <div className={styles.projectsGallery}>
           <Project
@@ -43,6 +42,5 @@ export default function Projects() {
           </Project>
         </div>
       </div>
-    </div>
   );
 }

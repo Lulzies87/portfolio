@@ -1,14 +1,19 @@
-@import "../colors";
+@import "../../colors.scss";
 
 .header {
-    padding: 0.6rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     user-select: none;
 }
 
+.title {
+    font-family: "Delius Swash Caps", cursive;
+    font-weight: 600;
+}
+
 .static {
+    background-color: $background1-color;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -85,7 +90,7 @@
 
 @media (max-width: 899px) {
     .header {
-        padding: 0.6rem 1rem;
+        padding: 0;
     }
 
     .hamburger {
@@ -98,7 +103,6 @@
         position: absolute;
         top: 60px;
         right: 24px;
-        background-color: $background1-color;
         width: 14ch;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
         border-radius: 5px;
