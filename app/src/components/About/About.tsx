@@ -47,12 +47,11 @@ export default function About() {
         </h1>
         <p className={styles.aboutContainer__textContainer__content}>
           {`I'm a mother, wife, coder, and gamer.
-                Motherhood inspired me to strive to be the best role model for my daughter, leading me into a new career as a Fullstack Developer.
-                Recently, I completed a year-long Full Stack course where my curiosity and passion for coding grew immensely.
-                Currently, I'm developing this site as my portfolio and actively seeking opportunities to contribute and grow in the tech industry.
-                I am a lifelong learner who prefers acquiring the knowledge needed to manage things independently, efficiently, and thoroughly.
-                Life, for me, is about setting goals and working to achieve them, becoming a little better with each milestone I reach.
-                My interests include photography, nutrition, and long-term investments.`}
+            Motherhood inspired me to strive to be the best role model for my daughter, which led me to choose a new career path as a Fullstack Developer.
+            Recently, I successfully completed an intensive year-long Full Stack course where my curiosity and passion for coding grew immensely.
+            Currently, I'm developing this site as my portfolio and actively seeking opportunities to contribute and grow in the tech industry.
+            I am a lifelong learner who is driven to continuously acquire new knowledge and skills. I enjoy solving complex problems, working efficiently to improve processes, and handling assignments thoroughly and with attention to detail.
+            Life, for me, is about setting goals and working to achieve them, becoming a little better with each milestone I reach.`}
         </p>
         {["circle1", "circle2", "circle3"].map((circle, index) => (
           <div
