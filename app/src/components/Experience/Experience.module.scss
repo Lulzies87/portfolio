@@ -20,3 +20,19 @@
         }
     }
 }
+
+@media (max-width: 699px) {
+    .experienceContainer {
+        &__content {
+            gap: 0.5rem;
+
+            >div:nth-child(odd) {
+                transform: translateX(0);
+            }
+
+            >div:nth-child(even) {
+                transform: translateX(0);
+            }
+        }
+    }
+}
