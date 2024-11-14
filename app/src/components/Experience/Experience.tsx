@@ -20,8 +20,8 @@ export default function Experience() {
       x: (index) =>
         isSmallScreen ? "-100%" : index % 2 === 0 ? "-100%" : "100%",
       stagger: 0.3,
-      ease: "bounce",
-      duration: 1.8,
+      ease: "power4",
+      duration: 2,
     });
 
     return () => {
