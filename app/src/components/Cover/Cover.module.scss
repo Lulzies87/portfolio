@@ -1,5 +1,12 @@
 .coverContainer {
     height: 100vh;
+
+    &__sailboat {
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-120%);
+    }
 }
 
 .positioningContainer {

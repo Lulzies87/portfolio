@@ -8,10 +8,13 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Cover() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const sailboatRef = useRef<HTMLImageElement>(null);
 
   useLayoutEffect(() => {
+    if (!scrollRef.current || !sailboatRef.current)
+      throw new Error("Couldn't find scroll/sailboat reference.");
+
     const tl = gsap.timeline({});
-    let scrollAnimation: GSAPAnimation;
 
     tl.from(titleRef.current, {
       x: "-100%",
@@ -19,10 +22,8 @@ export default function Cover() {
       duration: 1.6,
       ease: "power4",
       immediateRender: false,
-    });
-
-    if (scrollRef.current) {
-      tl.fromTo(
+    })
+      .fromTo(
         scrollRef.current.children,
         {
           opacity: 0,
@@ -31,26 +32,41 @@ export default function Cover() {
         {
           opacity: 1,
         }
-      ).to(scrollRef.current.children, {
+      )
+      .to(scrollRef.current.children, {
         duration: 0.3,
         y: -8,
         stagger: 0.1,
         yoyo: true,
         repeat: -1,
+      })
+      .to(sailboatRef.current, {
+        x: `-${window.innerWidth + sailboatRef.current.offsetWidth}px`,
+        duration: `${window.innerWidth / 10}`,
+        ease: "linear",
+        repeat: -1,
       });
 
-      scrollAnimation = gsap.to(scrollRef.current, {
-        scrollTrigger: {
-          trigger: scrollRef.current,
-          toggleActions: "play none none reverse",
-          start: "center 60%",
-        },
-        opacity: 0,
-      });
-    }
+    const rockingAnimation = gsap.to(sailboatRef.current, {
+      rotation: 3,
+      yoyo: true,
+      repeat: -1,
+      duration: 1,
+      keyframes: [{ rotation: -3 }, { rotation: 3 }],
+    });
+
+    const scrollAnimation = gsap.to(scrollRef.current, {
+      scrollTrigger: {
+        trigger: scrollRef.current,
+        toggleActions: "play none none reverse",
+        start: "center 60%",
+      },
+      opacity: 0,
+    });
     return () => {
       tl.revert();
       scrollAnimation.revert();
+      rockingAnimation.revert();
     };
   });
 
@@ -70,6 +86,13 @@ export default function Cover() {
           alt="down-arrow"
         />
       </div>
+
+      <img
+        ref={sailboatRef}
+        className={styles.coverContainer__sailboat}
+        src="/images/icons/boat.svg"
+        alt="sailboat-svg"
+      />
     </div>
   );
 }
