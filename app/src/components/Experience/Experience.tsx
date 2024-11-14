@@ -1,11 +1,38 @@
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import ExperienceBox from "../ExperienceBox/ExperienceBox";
 import styles from "./Experience.module.scss";
 
 export default function Experience() {
+  const experienceRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!experienceRef.current)
+      throw Error("Couldn't find experience reference.");
+
+    const isSmallScreen = window.innerWidth < 700;
+    const animation = gsap.from(experienceRef.current.children, {
+      scrollTrigger: {
+        trigger: experienceRef.current,
+        toggleActions: "restart none none none",
+      },
+      opacity: 0,
+      x: (index) =>
+        isSmallScreen ? "-100%" : index % 2 === 0 ? "-100%" : "100%",
+      stagger: 0.3,
+      ease: "bounce",
+      duration: 1.8,
+    });
+
+    return () => {
+      animation.revert();
+    };
+  }, []);
+
   return (
     <div id="experience" className={`${styles.experienceContainer} content`}>
       <h1>Experience</h1>
-      <div className={styles.experienceContainer__content}>
+      <div ref={experienceRef} className={styles.experienceContainer__content}>
         <ExperienceBox
           title="Payroll Administrator - Aluma"
           subtitle="Oct 2019 - Nov 2023"
