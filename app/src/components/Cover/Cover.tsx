@@ -40,12 +40,16 @@ export default function Cover() {
         yoyo: true,
         repeat: -1,
       })
-      .to(sailboatRef.current, {
-        x: `-${window.innerWidth + sailboatRef.current.offsetWidth}px`,
-        duration: `${window.innerWidth / 10}`,
-        ease: "linear",
-        repeat: -1,
-      });
+      .fromTo(
+        sailboatRef.current,
+        { y: "-120%" },
+        {
+          x: `-${window.innerWidth + sailboatRef.current.offsetWidth}px`,
+          duration: `${window.innerWidth / 10}`,
+          ease: "linear",
+          repeat: -1,
+        }
+      );
 
     const rockingAnimation = gsap.to(sailboatRef.current, {
       rotation: 3,
