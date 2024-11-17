@@ -1,40 +1,65 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import styles from "./Contact.module.scss";
+import { gsap } from "gsap";
 
 export default function Contact() {
-  const form = useRef<HTMLFormElement>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (!formRef.current) throw new Error("Couldn't find form reference.");
+
+    const animations = gsap.fromTo(
+      formRef.current.children,
+      {
+        opacity: 0,
+        scale: 0,
+        immediateRender: false,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        stagger: 0.1,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: formRef.current,
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+
+    return () => {
+      animations.revert();
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!formRef.current) throw new Error("Couldn't find form reference.");
 
-    if (!form.current) {
-      console.log("No form was found");
-    } else {
-      const isValid = validateFormFields(form.current);
-      if (isValid) {
-        setIsSubmitting(true);
-        emailjs
-          .sendForm(
-            import.meta.env.VITE_EMAILJS_SERVICE_ID,
-            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-            form.current,
-            import.meta.env.VITE_EMAILJS_USER_ID
-          )
-          .then(
-            () => {
-              setMessage("Your message was sent. Thank you :)");
-              setIsSubmitting(false);
-            },
-            (error) => {
-              setMessage("Failed to send the message. Please try again later.");
-              setIsSubmitting(false);
-              console.log("Failed to send the message:", error.text);
-            }
-          );
-      }
+    const isValid = validateFormFields(formRef.current);
+    if (isValid) {
+      setIsSubmitting(true);
+      emailjs
+        .sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          formRef.current,
+          import.meta.env.VITE_EMAILJS_USER_ID
+        )
+        .then(
+          () => {
+            setMessage("Your message was sent. Thank you :)");
+            setIsSubmitting(false);
+          },
+          (error) => {
+            setMessage("Failed to send the message. Please try again later.");
+            setIsSubmitting(false);
+            console.log("Failed to send the message:", error.text);
+          }
+        );
     }
   };
 
@@ -98,7 +123,11 @@ export default function Contact() {
     <div id="contact" className={`${styles.contactContainer} content`}>
       <h1>Contact Me</h1>
       {message && <div className={styles.message}>{message}</div>}
-      <form ref={form} onSubmit={handleSubmit} className={styles.formContainer}>
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className={styles.formContainer}
+      >
         <div className={styles.formField}>
           <label htmlFor="name">Name*</label>
           <input
