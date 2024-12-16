@@ -1,10 +1,16 @@
 import { useEffect, useRef, useState } from "react";
-import emailjs from "emailjs-com";
-import styles from "./Contact.module.scss";
 import { gsap } from "gsap";
+import { server } from "../../apiConfig";
+import styles from "./Contact.module.scss";
 
 export default function Contact() {
-  const [message, setMessage] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -35,31 +41,31 @@ export default function Contact() {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!formRef.current) throw new Error("Couldn't find form reference.");
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!formRef.current) throw new Error("Couldn't find form reference.");
     const isValid = validateFormFields(formRef.current);
+
     if (isValid) {
       setIsSubmitting(true);
-      emailjs
-        .sendForm(
-          import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          formRef.current,
-          import.meta.env.VITE_EMAILJS_USER_ID
-        )
-        .then(
-          () => {
-            setMessage("Your message was sent. Thank you :)");
-            setIsSubmitting(false);
-          },
-          (error) => {
-            setMessage("Failed to send the message. Please try again later.");
-            setIsSubmitting(false);
-            console.log("Failed to send the message:", error.text);
-          }
-        );
+  
+      try {
+        await server.post("/contact", formData);
+        setStatus("Your message was sent. Thank you :)");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } catch (error) {
+        setStatus("Failed to send the message. Please try again later.");
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -122,7 +128,7 @@ export default function Contact() {
   return (
     <div id="contact" className={`${styles.contactContainer} content`}>
       <h1>Contact Me</h1>
-      {message && <div className={styles.message}>{message}</div>}
+      {status && <div className={styles.status}>{status}</div>}
       <form
         ref={formRef}
         onSubmit={handleSubmit}
@@ -136,7 +142,7 @@ export default function Contact() {
             id="name"
             name="name"
             placeholder="Your name"
-            disabled={isSubmitting}
+            onChange={handleChange}
           />
         </div>
 
@@ -147,7 +153,7 @@ export default function Contact() {
             id="email"
             name="email"
             placeholder="Your email"
-            disabled={isSubmitting}
+            onChange={handleChange}
           />
         </div>
 
@@ -159,7 +165,7 @@ export default function Contact() {
             id="phone"
             name="phone"
             placeholder="Your phone"
-            disabled={isSubmitting}
+            onChange={handleChange}
           />
         </div>
 
@@ -172,7 +178,7 @@ export default function Contact() {
             cols={30}
             rows={10}
             maxLength={500}
-            disabled={isSubmitting}
+            onChange={handleChange}
           ></textarea>
         </div>
 
