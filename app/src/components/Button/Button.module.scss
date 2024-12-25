@@ -1,0 +1,16 @@
+@import "../../colors.scss";
+
+.button {
+    background-color: $text-color;
+    border: none;
+    border-radius: 5px;
+    padding: 0.6rem;
+    width: auto;
+    // align-self: flex-start;
+
+    a {
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+    }
+}

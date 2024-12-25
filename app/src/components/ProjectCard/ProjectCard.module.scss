@@ -1,0 +1,32 @@
+@import "../../colors.scss";
+
+.projectContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: $formfield-color;
+    width: 300px;
+    padding: 1.4rem;
+    border-radius: 5px;
+    border: 2px solid $background2-color;
+    box-shadow: -4px -4px 10px $shadow-color;
+
+    img {
+        border-radius: 5px;
+        border: 1px solid $background2-color;
+    }
+
+    .badgesContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+
+    .buttonsContainer {
+        display: flex;
+        justify-content: space-between;
+    }
+}

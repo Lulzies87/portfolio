@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import Project from "../Project/Project";
-import styles from "./Projects.module.scss";
+import ProjectCard from "../ProjectCard/ProjectCard";
 import { gsap } from "gsap";
+import styles from "./Projects.module.scss";
 
 export default function Projects() {
   const galleryRef = useRef<HTMLDivElement>(null);
@@ -30,39 +30,38 @@ export default function Projects() {
   return (
     <div id="projects" className={`${styles.projectsContainer} content`}>
       <h1>Projects</h1>
+
       <div ref={galleryRef} className={styles.projectsGallery}>
-        <Project
+        <ProjectCard
           title="Castle Warrior"
-          imageUrl="/images/projects/castleWarrior.png"
-          websiteUrl="https://castlewarrior.lulzies.top/"
-        >
-          <ul className={styles.technologiesList}>
-            <li>
-              <a
-                href="https://github.com/Lulzies87/castle-warrior"
-                target="_blank"
-              >
-                Github
-              </a>
-            </li>
-            <li>TypeScript</li>
-            <li>Canvas</li>
-          </ul>
-        </Project>
-        <Project title="Tic-Tac-Toe" imageUrl="/images/projects/ticTacToe.png">
-          <ul className={styles.technologiesList}>
-            <li>
-              <a
-                href="https://github.com/Lulzies87/tic-tac-toe"
-                target="_blank"
-              >
-                Github
-              </a>
-            </li>
-            <li>React Native (expo)</li>
-          </ul>
-        </Project>
+          technologies={[
+            "TypeScript",
+            "HTML5 Canvas",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "AWS",
+          ]}
+          imageUrl="/images/projects/castle-warrior.png"
+          codeUrl="https://github.com/Lulzies87/castle-warrior"
+          demoUrl="https://castlewarrior.lulzies.top/"
+        ></ProjectCard>
+        <ProjectCard
+          title="This Website"
+          technologies={[
+            "TypeScript",
+            "React",
+            "Node.js",
+            "Nodemailer",
+            "GSAP",
+            "AWS",
+          ]}
+          imageUrl="/images/projects/portfolio.png"
+          codeUrl="https://github.com/Lulzies87/portfolio"
+          demoUrl=""
+        ></ProjectCard>
       </div>
+
     </div>
   );
 }
