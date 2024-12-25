@@ -8,10 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Cover() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const sailboatRef = useRef<HTMLImageElement>(null);
 
   useLayoutEffect(() => {
-    if (!scrollRef.current || !sailboatRef.current)
+    if (!scrollRef.current)
       throw new Error("Couldn't find scroll/sailboat reference.");
 
     const tl = gsap.timeline({});
@@ -39,25 +38,7 @@ export default function Cover() {
         stagger: 0.1,
         yoyo: true,
         repeat: -1,
-      })
-      .fromTo(
-        sailboatRef.current,
-        { y: "-120%" },
-        {
-          x: `-${window.innerWidth + sailboatRef.current.offsetWidth}px`,
-          duration: `${window.innerWidth / 10}`,
-          ease: "linear",
-          repeat: -1,
-        }
-      );
-
-    const rockingAnimation = gsap.to(sailboatRef.current, {
-      rotation: 3,
-      yoyo: true,
-      repeat: -1,
-      duration: 1,
-      keyframes: [{ rotation: -3 }, { rotation: 3 }],
-    });
+      });
 
     const scrollAnimation = gsap.to(scrollRef.current, {
       scrollTrigger: {
@@ -70,7 +51,6 @@ export default function Cover() {
     return () => {
       tl.revert();
       scrollAnimation.revert();
-      rockingAnimation.revert();
     };
   });
 
@@ -90,13 +70,6 @@ export default function Cover() {
           alt="down-arrow"
         />
       </div>
-
-      <img
-        ref={sailboatRef}
-        className={styles.coverContainer__sailboat}
-        src="/images/icons/boat.svg"
-        alt="sailboat-svg"
-      />
     </div>
   );
 }
