@@ -1,4 +1,4 @@
-@import "../../colors.scss";
+@import "@/styles/_variables";
 
 .header {
     display: flex;
@@ -105,7 +105,7 @@
         right: 24px;
         width: 14ch;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-        border-radius: 5px;
+        border-radius: $border-radius;
     }
 
     .navigationBar.open {

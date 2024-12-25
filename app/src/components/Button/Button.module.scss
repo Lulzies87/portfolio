@@ -1,9 +1,9 @@
-@import "../../colors.scss";
+@import "@/styles/_variables";
 
 .button {
     background-color: $text-color;
     border: none;
-    border-radius: 5px;
+    border-radius: $border-radius;
     padding: 0.6rem;
     width: auto;
 

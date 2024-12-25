@@ -1,4 +1,4 @@
-@import "../../colors.scss";
+@import "@/styles/_variables";
 
 .contactContainer {
     height: 100vh;
@@ -24,7 +24,7 @@
     color: $text-color;
     padding: 14px;
     border: none;
-    border-radius: 5px;
+    border-radius: $border-radius;
     font-size: inherit;
 }
 
@@ -32,7 +32,7 @@
     background-color: $text-color;
     color: $formfield-color;
     border: none;
-    border-radius: 5px;
+    border-radius: $border-radius;
     padding: .8rem;
     font-family: "Quicksand", sans-serif;
     font-size: 1.1rem;
@@ -55,7 +55,7 @@
 
 .status {
     background-color: $secondary-color;
-    border-radius: 5px;
+    border-radius: $border-radius;
     padding: .6rem;
     margin-bottom: 1rem;
     max-width: 50ch;
