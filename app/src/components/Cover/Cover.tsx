@@ -58,7 +58,7 @@ export default function Cover() {
     <div id="cover" className={`${styles.coverContainer} content`}>
       <div className={styles.positioningContainer}>
         <h1 ref={titleRef} className={styles.title}>
-          Hi! I'm Lilach
+          Hi! I'm Lilach<span className="text-accent">.</span>
         </h1>
       </div>
 

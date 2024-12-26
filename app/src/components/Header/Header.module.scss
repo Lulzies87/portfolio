@@ -1,22 +1,27 @@
 @import "@/styles/_variables";
 
+.static {
+    background-color: $muted;
+    position: sticky;
+    top: 10px;
+    width: clamp(300px, 95vw, 550px);
+    margin: 0 auto;
+    border-radius: 30px;
+    z-index: 1000;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     user-select: none;
+    color: $muted-foreground;
+    padding: 0 1rem;
 }
 
 .title {
     font-family: "Delius Swash Caps", cursive;
     font-weight: 600;
-}
-
-.static {
-    background-color: $background1-color;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
 .titleContainer {
@@ -78,7 +83,7 @@
     position: absolute;
     width: 0;
     height: 1px;
-    background-color: currentColor;
+    background-color: $primary;
     left: 0;
     bottom: -2px;
     transition: width 0.25s;

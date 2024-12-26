@@ -5,14 +5,14 @@
   font-optical-sizing: auto;
   font-style: normal;
   line-height: 1.5;
-  color: $text-color;
+  color: $foreground;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   margin: 0;
-  background-color: $background1-color;
+  background-color: $background;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
@@ -32,6 +32,10 @@ h2 {
 h3 {
   font-size: 1rem;
   margin: 0;
+}
+
+.text-accent {
+  color: $primary;
 }
 
 @media (max-width: 699px) {

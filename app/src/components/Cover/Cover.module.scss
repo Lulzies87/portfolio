@@ -21,6 +21,10 @@
     justify-content: center;
 }
 
+.title {
+    font-size: clamp(2rem, 5vw + 1rem, 4rem);
+}
+
 .scrollContainer {
     position: absolute;
     bottom: 0;
@@ -40,13 +44,5 @@
 
     &__arrow {
         width: 32px;
-    }
-}
-
-@media (max-width: 899px) {
-    .positioningContainer {
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
     }
 }
