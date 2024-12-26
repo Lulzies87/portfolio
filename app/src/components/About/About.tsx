@@ -8,7 +8,7 @@ export default function About() {
   const circleRefs = useRef<HTMLDivElement[]>([]);
 
   useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       circleRefs.current.forEach((ref) => {
         gsap.fromTo(
           ref,
