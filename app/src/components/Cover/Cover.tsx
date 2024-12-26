@@ -30,6 +30,7 @@ export default function Cover() {
         },
         {
           opacity: 1,
+          delay: 1.5,
         }
       )
       .to(scrollRef.current.children, {

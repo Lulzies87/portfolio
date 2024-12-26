@@ -1,36 +1,75 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import styles from "./Header.module.scss";
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const headerRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLButtonElement>(null);
+  const navLinksRef = useRef<HTMLUListElement>(null);
+  const sections = ["about", "skills", "experience", "projects", "contact"];
 
   useLayoutEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 900px)");
+    if (!navLinksRef.current)
+      throw new Error("Couldn't find navigation menu reference.");
+    const tl = gsap.timeline();
 
-    let headerAnimation: gsap.core.Tween | null = null;
-
-    if (mediaQuery.matches && headerRef.current) {
-      headerAnimation = gsap.fromTo(
-        headerRef.current,
-        {
-          y: "-100%",
-          immediateRender: false,
-        },
-        {
-          delay: 0.7,
-          duration: 0.8,
-          y: 0,
-          ease: "power2",
-        }
-      );
-    }
+    tl.from(headerRef.current, {
+      delay: 1,
+      scale: 0,
+      duration: 0.2,
+    })
+      .from(headerRef.current, {
+        width: "56px",
+        ease: "bounce",
+      })
+      .from(logoRef.current, {
+        display: "none",
+        scale: 0,
+        duration: 0.1,
+      })
+      .from(navLinksRef.current.children, {
+        opacity: 0,
+        stagger: 0.1,
+        x: -16,
+      });
 
     return () => {
-      if (headerAnimation) headerAnimation.revert();
+      tl.revert();
     };
-  });
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let currentSection = null;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const viewportHeight = window.innerHeight;
+
+          if (
+            rect.top <= viewportHeight / 2 &&
+            rect.bottom > viewportHeight / 2
+          ) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -64,13 +103,15 @@ export default function Header() {
 
   return (
     <div ref={headerRef} className={styles.static}>
-      <div className={`${styles.header} content`}>
+      <div className={styles.header}>
         <div className={styles.titleContainer}>
           <button
+            ref={logoRef}
             className={styles.bannerButton}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <img
+              className="svg-class"
               src="/images/icons/siteIcon.svg"
               alt="site icon"
             />
@@ -86,19 +127,19 @@ export default function Header() {
         <nav
           className={`${styles.navigationBar} ${menuOpen ? styles.open : ""}`}
         >
-          <ul className={styles.navLinks}>
-            {["about", "skills", "experience", "projects", "contact"].map(
-              (section) => (
-                <li key={section}>
-                  <button
-                    className={styles.navLink}
-                    onClick={() => scrollToSection(section)}
-                  >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
-                  </button>
-                </li>
-              )
-            )}
+          <ul ref={navLinksRef} className={styles.navLinks}>
+            {sections.map((section) => (
+              <li key={section}>
+                <button
+                  className={`${styles.navLink} ${
+                    activeSection === section ? styles.active : ""
+                  }`}
+                  onClick={() => scrollToSection(section)}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </button>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
