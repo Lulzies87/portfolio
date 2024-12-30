@@ -1,10 +1,15 @@
+@import "@/styles/_variables";
+
 .aboutContainer {
     height: 100vh;
     align-content: center;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 4rem;
+
+    &__innerWrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: max(2rem);
+    }
 
     &__image {
         border-radius: 50%;
@@ -55,11 +60,13 @@
 
 @media (max-width: 1099px) {
     .aboutContainer {
-        flex-direction: column;
-        justify-content: center;
+        &__innerWrap {
+            flex-direction: column;
+            justify-content: center;
+        }
 
         &__image {
-            width: max(250px, 25vw);
+            width: clamp(250px, 70% ,400px);
             margin-bottom: 1rem;
         }
 

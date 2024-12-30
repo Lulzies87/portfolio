@@ -1,14 +1,15 @@
+@import "@/styles/_variables";
+
 .coverContainer {
     height: 100vh;
-
-    &__sailboat {
-        position: absolute;
-        top: 50%;
-        left: 100%;
-    }
 }
 
 .positioningContainer {
+    height: 100vh;
+    background-image: linear-gradient(to bottom, transparent, $background), url('/images/background-image2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: absolute;
     top: 0;
     left: 50%;
