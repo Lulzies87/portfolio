@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./About.module.scss";
@@ -11,6 +11,8 @@ export default function About() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   // useLayoutEffect(() => {
+  //   ScrollTrigger.normalizeScroll(true);
+
   //   const ctx = gsap.context(() => {
   //     gsap.fromTo(
   //       imageRef.current,
@@ -24,9 +26,12 @@ export default function About() {
   //           start: "top 80%",
   //           end: "bottom 20%",
   //           toggleActions: "restart none restart none",
+  //           markers: true,
   //         },
   //         opacity: 1,
   //         x: 0,
+  //         ease: "power4",
+  //         duration: 1,
   //       }
   //     );
 
@@ -45,6 +50,8 @@ export default function About() {
   //         },
   //         opacity: 1,
   //         x: 0,
+  //         ease: "power4",
+  //         duration: 1,
   //       }
   //     );
   //   });
@@ -56,7 +63,6 @@ export default function About() {
 
   return (
     <div ref={aboutRef} id="about" className={styles.aboutContainer}>
-
       <img
         className={styles.aboutContainer__transitionTop}
         src="/images/transition.png"
@@ -98,7 +104,6 @@ export default function About() {
         src="/images/transition.png"
         alt="transition-image"
       />
-      
     </div>
   );
 }
