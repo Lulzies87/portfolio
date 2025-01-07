@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Cover() {
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const underlineRef = useRef<HTMLImageElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
@@ -18,10 +19,20 @@ export default function Cover() {
     tl.from(titleRef.current, {
       x: "-100%",
       opacity: 0,
-      duration: 1.6,
+      duration: 1.4,
       ease: "power4",
       immediateRender: false,
     })
+      .fromTo(
+        underlineRef.current,
+        {
+          clipPath: "inset(0 100% 0 0)",
+        },
+        {
+          clipPath: "inset(0 0% 0 0)",
+          ease: "power4",
+        }
+      )
       .fromTo(
         scrollRef.current.children,
         {
@@ -30,6 +41,7 @@ export default function Cover() {
         },
         {
           opacity: 1,
+          delay: 1,
         }
       )
       .to(scrollRef.current.children, {
@@ -57,9 +69,18 @@ export default function Cover() {
   return (
     <div id="cover" className={`${styles.coverContainer} content`}>
       <div className={styles.positioningContainer}>
-        <h1 ref={titleRef} className={styles.title}>
-          Hi! I'm Lilach
-        </h1>
+        <div className={styles.titleContainer}>
+          <img
+            ref={underlineRef}
+            src="/images/underline.png"
+            alt="underline"
+            className={styles.titleContainer__underlineImage}
+          />
+
+          <h1 ref={titleRef} className={styles.titleContainer__title}>
+            Hi! I'm Lilach<span className="text-accent">.</span>
+          </h1>
+        </div>
       </div>
 
       <div ref={scrollRef} className={styles.scrollContainer}>

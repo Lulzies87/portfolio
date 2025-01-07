@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import ExperienceBox from "../ExperienceBox/ExperienceBox";
+import ExperienceBox from "../ExperienceBox/ExperienceBox.tsx";
 import styles from "./Experience.module.scss";
 
 export default function Experience() {
@@ -31,7 +31,9 @@ export default function Experience() {
 
   return (
     <div id="experience" className={`${styles.experienceContainer} content`}>
-      <h1>Experience</h1>
+      <h1>
+        Experience<span className="text-accent">.</span>
+      </h1>
       <div ref={experienceRef} className={styles.experienceContainer__content}>
         <ExperienceBox
           title="Payroll Administrator - Aluma"

@@ -1,15 +1,21 @@
-@import "../../colors.scss";
+@import "@/styles/_variables";
 
 .button {
-    background-color: $text-color;
+    background-color: $foreground;
     border: none;
-    border-radius: 5px;
+    border-radius: $border-radius;
     padding: 0.6rem;
     width: auto;
+    transition: background-color 0.3s ease;
 
-    a {
+    &__link {
         color: white;
         font-weight: bold;
         text-decoration: none;
+
+    }
+    
+    &:hover {
+        background-color: $primary;
     }
 }

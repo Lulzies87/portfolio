@@ -1,11 +1,10 @@
-@import "../../colors.scss";
+@import "@/styles/_variables";
 
 .experienceBoxContainer {
-    background-color: $formfield-color;
+    background-color: $muted;
     max-width: min(45vw, 50ch);
     padding: 1.2rem;
-    border: 2px solid $background2-color;
-    border-radius: 3px;
+    border-radius: $border-radius;
 
     &__skillList {
         list-style: none;

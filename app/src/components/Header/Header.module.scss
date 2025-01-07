@@ -1,22 +1,28 @@
-@import "../../colors.scss";
+@import "@/styles/_variables";
+
+.static {
+    background-color: $muted;
+    position: sticky;
+    top: 10px;
+    width: clamp(300px, 95vw, 508px);
+    margin: 0 auto;
+    border-radius: 30px;
+    z-index: 1000;
+}
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 56px;
     user-select: none;
+    color: $muted-foreground;
+    padding: 0 16px 0 4px;
 }
 
 .title {
     font-family: "Delius Swash Caps", cursive;
     font-weight: 600;
-}
-
-.static {
-    background-color: $background1-color;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
 .titleContainer {
@@ -41,7 +47,7 @@
 .hamburger .line {
     width: 25px;
     height: 2px;
-    background-color: $text-color;
+    background-color: $muted-foreground;
     margin: 3px 0;
 }
 
@@ -65,34 +71,32 @@
 .navLink {
     background-color: transparent;
     border: none;
-    color: inherit;
+    color: $foreground;
     cursor: pointer;
     font-family: inherit;
     font-size: inherit;
+    font-weight: 600;
     padding: 0;
     position: relative;
-}
 
-.navLink::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 1px;
-    background-color: currentColor;
-    left: 0;
-    bottom: -2px;
-    transition: width 0.25s;
-}
-
-.navLink:hover::after {
-    width: 100%;
-}
-
-@media (max-width: 899px) {
-    .header {
-        padding: 0;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: $primary;
+        left: 0;
+        bottom: -2px;
+        transition: width 0.25s ease-in-out;
     }
 
+    &:hover::before,
+    &.active::before {
+        width: 100%;
+    }
+}
+
+@media (max-width: 529px) {
     .hamburger {
         display: flex;
     }
@@ -101,16 +105,16 @@
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
-        right: 24px;
+        top: 46px;
+        right: 4px;
         width: 14ch;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-        border-radius: 5px;
+        border-radius: $border-radius;
     }
 
     .navigationBar.open {
         display: flex;
-        background-color: $background1-color;
+        background-color: $muted;
     }
 
     .navLinks {
@@ -120,11 +124,10 @@
 
     .navLink {
         text-align: center;
-        width: 100%;
-    }
 
-    .navLink:hover::after {
-        margin: 0 30%;
-        width: 40%;
+        &:hover::before,
+        &.active::before {
+            width: 100%;
+        }
     }
 }

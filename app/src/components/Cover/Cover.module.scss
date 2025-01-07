@@ -1,14 +1,11 @@
+@import "@/styles/_variables";
+
 .coverContainer {
     height: 100vh;
-
-    &__sailboat {
-        position: absolute;
-        top: 50%;
-        left: 100%;
-    }
 }
 
 .positioningContainer {
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 50%;
@@ -20,6 +17,30 @@
     align-items: center;
     justify-content: center;
 }
+
+.titleContainer {
+    position: relative;
+    display: inline-block;
+    width: clamp(300px, 55vw,500px);
+    
+    &__title {
+        font-size: clamp(2rem, 5vw + 1rem, 4rem);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        white-space: nowrap;
+        width: auto;
+    }
+
+    &__underlineImage {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
 
 .scrollContainer {
     position: absolute;
@@ -34,19 +55,11 @@
 
     &__text {
         margin: 0;
-        font-size: large;
-        font-weight: bold;
+        font-size: 1rem;
+        font-weight: 600;
     }
 
     &__arrow {
         width: 32px;
-    }
-}
-
-@media (max-width: 899px) {
-    .positioningContainer {
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
     }
 }
