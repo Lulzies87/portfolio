@@ -36,7 +36,9 @@ export default function Skills() {
 
   return (
     <div id="skills" className={`${styles.skillsContainer} content`}>
-      <h1>Skills</h1>
+      <h1>
+        Skills<span className="text-accent">.</span>
+      </h1>
       <ul ref={listRef} className={styles.skillsList}>
         {[
           "html",

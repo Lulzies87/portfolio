@@ -17,7 +17,7 @@
     height: 56px;
     user-select: none;
     color: $muted-foreground;
-    padding: 0 24px 0 4px;
+    padding: 0 16px 0 4px;
 }
 
 .title {
@@ -71,10 +71,11 @@
 .navLink {
     background-color: transparent;
     border: none;
-    color: inherit;
+    color: $foreground;
     cursor: pointer;
     font-family: inherit;
     font-size: inherit;
+    font-weight: 600;
     padding: 0;
     position: relative;
 
@@ -82,7 +83,7 @@
         content: "";
         position: absolute;
         width: 0;
-        height: 1px;
+        height: 2px;
         background-color: $primary;
         left: 0;
         bottom: -2px;
@@ -96,10 +97,6 @@
 }
 
 @media (max-width: 529px) {
-    .header {
-        padding: 0;
-    }
-
     .hamburger {
         display: flex;
     }
@@ -127,11 +124,10 @@
 
     .navLink {
         text-align: center;
-        width: 100%;
-    }
 
-    .navLink:hover::after {
-        margin: 0 30%;
-        width: 40%;
+        &:hover::before,
+        &.active::before {
+            width: 100%;
+        }
     }
 }

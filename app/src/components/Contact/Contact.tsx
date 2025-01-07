@@ -15,29 +15,31 @@ export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (!formRef.current) throw new Error("Couldn't find form reference.");
+    const ctx = gsap.context(() => {
+      if (!formRef.current) throw new Error("Couldn't find form reference.");
 
-    const animations = gsap.fromTo(
-      formRef.current.children,
-      {
-        opacity: 0,
-        scale: 0,
-        immediateRender: false,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        stagger: 0.1,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: formRef.current,
-          toggleActions: "restart none none none",
+      gsap.fromTo(
+        formRef.current.children,
+        {
+          opacity: 0,
+          scale: 0,
+          immediateRender: false,
         },
-      }
-    );
+        {
+          opacity: 1,
+          scale: 1,
+          stagger: 0.1,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: formRef.current,
+            toggleActions: "restart none none none",
+          },
+        }
+      );
+    });
 
     return () => {
-      animations.revert();
+      ctx.revert();
     };
   }, []);
 
@@ -56,7 +58,7 @@ export default function Contact() {
 
     if (isValid) {
       setIsSubmitting(true);
-  
+
       try {
         await server.post("/contact", formData);
         setStatus("Your message was sent. Thank you :)");
@@ -127,7 +129,9 @@ export default function Contact() {
 
   return (
     <div id="contact" className={`${styles.contactContainer} content`}>
-      <h1>Contact Me</h1>
+      <h1>
+        Contact Me<span className="text-accent">.</span>
+      </h1>
       {status && <div className={styles.status}>{status}</div>}
       <form
         ref={formRef}

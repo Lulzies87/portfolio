@@ -1,10 +1,10 @@
-import Contact from "./components/Contact/Contact";
-import Cover from "./components/Cover/Cover";
-import Experience from "./components/Experience/Experience";
-import Header from "./components/Header/Header";
-import Projects from "./components/Projects/Projects";
-import Skills from "./components/Skills/Skills";
-import About from "./components/About/About";
+import Contact from "./components/Contact/Contact.tsx";
+import Cover from "./components/Cover/Cover.tsx";
+import Experience from "./components/Experience/Experience.tsx";
+import Header from "./components/Header/Header.tsx";
+import Projects from "./components/Projects/Projects.tsx";
+import Skills from "./components/Skills/Skills.tsx";
+import About from "./components/About/About.tsx";
 import "./App.scss";
 
 export default function App() {

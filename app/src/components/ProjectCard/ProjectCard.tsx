@@ -1,6 +1,6 @@
 import styles from "./ProjectCard.module.scss";
-import Badge from "../Badge/Badge";
-import Button from "../Button/Button";
+import Badge from "../Badge/Badge.tsx";
+import Button from "../Button/Button.tsx";
 
 type ProjectCardProps = {
   title: string;

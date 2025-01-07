@@ -17,32 +17,39 @@
     display: flex;
     flex-direction: column;
     text-align: left;
+    font-weight: bold;
+    color: $foreground;
 }
 
 .inputField {
     font-family: "Quicksand", sans-serif;
-    color: $text-color;
+    color: $muted-foreground;
     padding: 14px;
     border: none;
     border-radius: $border-radius;
     font-size: inherit;
+
+    &::placeholder {
+        color: $placeholder;
+    }
 }
 
 .submitButton {
-    background-color: $text-color;
-    color: $formfield-color;
+    background-color: $foreground;
+    color: $muted;
     border: none;
     border-radius: $border-radius;
     padding: .8rem;
     font-family: "Quicksand", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: bold;
     width: 150px;
     margin: 0 auto;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 
     &:hover {
-        background-color: $secondary-color;
+        background-color: $primary;
     }
 }
 
@@ -50,17 +57,19 @@
     font-size: .8rem;
     font-weight: 600;
     margin: 0;
-    color: red;
+    color: $notice;
 }
 
 .status {
-    background-color: $secondary-color;
+    background-color: $muted;
+    color: $primary;
     border-radius: $border-radius;
     padding: .6rem;
     margin-bottom: 1rem;
-    max-width: 50ch;
+    max-width: 47ch;
     margin: 0 auto 1rem auto;
-    font-weight: 500;
+    font-weight: bold;
+    border: 2px solid $primary;
 }
 
 @media (max-width: 899px) {

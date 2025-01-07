@@ -4,11 +4,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: $text-color;
+    background-color: $primary;
     padding: 0.2em 0.6em;
     border-radius: $border-radius;
     font-size: 0.75rem;
     color: white;
     font-weight: bold;
     height: 1.7em;
+    user-select: none;
 }
