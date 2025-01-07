@@ -1,8 +1,24 @@
 @import "@/styles/_variables";
 
 .aboutContainer {
+    position: relative;
     min-height: 100vh;
     align-content: center;
+    background-color: $muted;
+    padding: 2.5rem 2rem;
+    border-radius: $border-radius;
+
+    &__transitionTop {
+        position: absolute;
+        transform: translateX(-50%);
+        top: 0,
+    }
+
+    &__transitionBottom {
+        position: absolute;
+        transform: translateX(-50%) rotate(180deg);
+        bottom: 0,
+    }
 
     &__innerWrap {
         display: flex;
@@ -35,10 +51,13 @@
 
 @media (max-width: 1099px) {
     .aboutContainer {
+        padding: 256px 0;
+
         &__innerWrap {
             flex-direction: column;
             justify-content: center;
             gap: 0;
+            min-height: auto;
 
             &__image {
                 width: clamp(300px, 70%, 400px);

@@ -10,69 +10,79 @@ export default function About() {
   const imageRef = useRef<HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        imageRef.current,
-        {
-          opacity: 0,
-          x: -100,
-        },
-        {
-          scrollTrigger: {
-            trigger: aboutRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "restart none restart none",
-          },
-          opacity: 1,
-          x: 0,
-        }
-      );
+  // useLayoutEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.fromTo(
+  //       imageRef.current,
+  //       {
+  //         opacity: 0,
+  //         x: -100,
+  //       },
+  //       {
+  //         scrollTrigger: {
+  //           trigger: aboutRef.current,
+  //           start: "top 80%",
+  //           end: "bottom 20%",
+  //           toggleActions: "restart none restart none",
+  //         },
+  //         opacity: 1,
+  //         x: 0,
+  //       }
+  //     );
 
-      gsap.fromTo(
-        contentRef.current,
-        {
-          opacity: 0,
-          x: 100,
-        },
-        {
-          scrollTrigger: {
-            trigger: aboutRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "restart none restart none",
-          },
-          opacity: 1,
-          x: 0,
-        }
-      );
-    });
+  //     gsap.fromTo(
+  //       contentRef.current,
+  //       {
+  //         opacity: 0,
+  //         x: 100,
+  //       },
+  //       {
+  //         scrollTrigger: {
+  //           trigger: aboutRef.current,
+  //           start: "top 80%",
+  //           end: "bottom 20%",
+  //           toggleActions: "restart none restart none",
+  //         },
+  //         opacity: 1,
+  //         x: 0,
+  //       }
+  //     );
+  //   });
 
-    return () => {
-      ctx.revert();
-    };
-  }, []);
+  //   return () => {
+  //     ctx.revert();
+  //   };
+  // }, []);
 
   return (
-    <div
-      ref={aboutRef}
-      id="about"
-      className={`${styles.aboutContainer} content`}
-    >
-      <div className={styles.aboutContainer__innerWrap}>
+    <div ref={aboutRef} id="about" className={styles.aboutContainer}>
+
+      <img
+        className={styles.aboutContainer__transitionTop}
+        src="/images/transition.png"
+        alt="transition-image"
+      />
+
+      <div className={`${styles.aboutContainer__innerWrap} content`}>
         <img
           ref={imageRef}
           className={styles.aboutContainer__innerWrap__image}
-          src="/images/profilePicture.png"
+          src="/images/profilePicture2.jpg"
           alt="profile-image"
         />
 
-        <div ref={contentRef} className={styles.aboutContainer__innerWrap__textContainer}>
-          <h1 className={styles.aboutContainer__innerWrap__textContainer__title}>
+        <div
+          ref={contentRef}
+          className={styles.aboutContainer__innerWrap__textContainer}
+        >
+          <h1
+            className={styles.aboutContainer__innerWrap__textContainer__title}
+          >
             About Me<span className="text-accent">.</span>
           </h1>
-          <p className={styles.aboutContainer__innerWrap__textContainer__content}>
+          <p
+            className={styles.aboutContainer__innerWrap__textContainer__content}
+          >
             {`I'm a mother, wife, coder, and gamer.
                 Motherhood inspired me to strive to be the best role model for my daughter, which led me to choose a new career path as a Fullstack Developer.
                 Recently, I successfully completed an intensive year-long Full Stack course where my curiosity and passion for coding grew immensely.
@@ -82,6 +92,13 @@ export default function About() {
           </p>
         </div>
       </div>
+
+      <img
+        className={styles.aboutContainer__transitionBottom}
+        src="/images/transition.png"
+        alt="transition-image"
+      />
+      
     </div>
   );
 }
