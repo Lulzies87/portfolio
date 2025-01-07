@@ -12,6 +12,7 @@
     grid-template-columns: repeat(6, calc(100% / 6));
     padding: 0;
     margin: 0;
+    overflow: hidden;
 
     & li {
         padding: 10px;
