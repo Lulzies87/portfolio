@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./About.module.scss";
@@ -10,56 +10,36 @@ export default function About() {
   const imageRef = useRef<HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // useLayoutEffect(() => {
-  //   ScrollTrigger.normalizeScroll(true);
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: aboutRef.current,
+          start: "top bottom",
+          toggleActions: "restart none none reset",
+        },
+      });
 
-  //   const ctx = gsap.context(() => {
-  //     gsap.fromTo(
-  //       imageRef.current,
-  //       {
-  //         opacity: 0,
-  //         x: -100,
-  //       },
-  //       {
-  //         scrollTrigger: {
-  //           trigger: aboutRef.current,
-  //           start: "top 80%",
-  //           end: "bottom 20%",
-  //           toggleActions: "restart none restart none",
-  //           markers: true,
-  //         },
-  //         opacity: 1,
-  //         x: 0,
-  //         ease: "power4",
-  //         duration: 1,
-  //       }
-  //     );
+      tl.from(imageRef.current, {
+        scale: 0,
+        ease: "power4",
+        duration: 1,
+      }).from(
+        contentRef.current,
+        {
+          opacity: 0,
+          y: 50,
+          ease: "power4",
+          duration: 1,
+        },
+        "-=0.5"
+      );
+    });
 
-  //     gsap.fromTo(
-  //       contentRef.current,
-  //       {
-  //         opacity: 0,
-  //         x: 100,
-  //       },
-  //       {
-  //         scrollTrigger: {
-  //           trigger: aboutRef.current,
-  //           start: "top 80%",
-  //           end: "bottom 20%",
-  //           toggleActions: "restart none restart none",
-  //         },
-  //         opacity: 1,
-  //         x: 0,
-  //         ease: "power4",
-  //         duration: 1,
-  //       }
-  //     );
-  //   });
-
-  //   return () => {
-  //     ctx.revert();
-  //   };
-  // }, []);
+    return () => {
+      ctx.revert();
+    };
+  }, []);
 
   return (
     <div ref={aboutRef} id="about" className={styles.aboutContainer}>
