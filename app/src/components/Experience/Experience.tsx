@@ -31,7 +31,6 @@ export default function Experience() {
 
   return (
     <div id="experience" className={styles.experienceContainer}>
-
       <img
         className={styles.experienceContainer__transitionTop}
         src="/images/experience-transition.png"
@@ -42,7 +41,7 @@ export default function Experience() {
         <h1 className={styles.experienceContainer__title}>
           Experience<span className="text-accent">.</span>
         </h1>
-        
+
         <div
           ref={experienceRef}
           className={styles.experienceContainer__content}
@@ -51,36 +50,38 @@ export default function Experience() {
             title="Payroll Administrator - Aluma"
             subtitle="Oct 2019 - Nov 2023"
             responsibilities={[
-              "Full responsibility for the entire payroll and attendance systems of the organization (250 employees), serving as the single point of contact for related questions and issues.",
-              "Developed and implemented efficient work processes in collaboration with various teams across the company to optimize payroll processing procedures.",
+              "Streamlined payroll operations for 250 employees, reducing end-to-end processing time by 30% through process optimization and automation.",
+              "Successfully led the migration to a new attendance system, improving payroll accuracy and minimizing errors to 1%.",
+              "Served as the primary contact for payroll and attendance matters, ensuring seamless communication across teams and departments.",
+              "Collaborated with cross-functional teams to develop customized solutions for attendance and payroll workflows.",
             ]}
           />
           <ExperienceBox
             title="Payroll Specialist - Guberman Group"
             subtitle="Jun 2018 - Sep 2019"
             responsibilities={[
-              "Worked as part of a team of 8 payroll accountants, consistently meeting tight deadlines and diverse requirements.",
-              "Provided comprehensive support and solutions to clients regarding payroll, pensions, and labor laws.",
+              "Supported a team of eight payroll accountants, delivering accurate and timely payroll services under tight deadlines.",
+              "Provided guidance to clients on payroll, pensions, and labor law compliance, ensuring adherence to all regulations.",
+              "Authored informative articles for the company’s English newsletter, catering to an international client base.",
             ]}
           />
           <ExperienceBox
             title="Computer Room Operator - HOT mobile"
             subtitle="Jun 2011 - Oct 2015"
             responsibilities={[
-              "Monitored all production servers and telephony systems, managed large-scale incidents.",
-              "Operated processes on Windows/Linux/Unix environments including DWH & billing processes.",
-              "Managed the organizational backup systems",
-              "Produced weekly and monthly failure data reports.",
-              "Trained new operators, prepared work schedules, wrote work procedures, and conducted team training.",
-              "Systems used: HP Network Node Manager, HP Operation Manager, Grid Control, Legato Networker.",
+              "Monitored and maintained production servers and telephony systems, ensuring uninterrupted operations during high-demand periods.",
+              "Managed large-scale incidents effectively, reducing downtime and maintaining service reliability.",
+              "Played a pivotal role as the manager’s assistant, leading training programs for new operators, creating work schedules, and documenting operational procedures.",
+              "Conducted regular team training sessions and participated in candidate interviews to build and strengthen the team.",
             ]}
           />
           <ExperienceBox
             title="Computer Room Operator - 012 Golden Lines"
             subtitle="May 2010 - May 2011"
             responsibilities={[
-              "Monitored all production servers and telephony systems, managed large-scale incidents.",
-              "Systems used: HP Sitescope, BAC, OnGuard, EAI, Legato Networker, Data Protector, NetVault.",
+              "Operated backup systems and processes across Linux/Unix and Windows environments.",
+              "Monitored production servers, identifying, and resolving issues in real-time to ensure high system availability.",
+              "Managed production servers and resolved incidents in real-time.",
             ]}
           />
         </div>
@@ -91,7 +92,6 @@ export default function Experience() {
         src="/images/experience-transition.png"
         alt="transition-image"
       />
-
     </div>
   );
 }
