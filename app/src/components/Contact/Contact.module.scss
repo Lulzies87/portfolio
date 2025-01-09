@@ -4,12 +4,23 @@
     height: 100vh;
     align-content: center;
 
-    &__contactButton {
-        display: inline-flex;
-        transition: transform 0.2s;
+    &__title {
+        margin-bottom: 0;
+    }
 
-        &:hover {
-            transform: scale(1.1);
+    &__buttonsContainer {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin: 0.6rem 0;
+
+        &__contactButton {
+            display: inline-flex;
+            transition: transform 0.2s;
+
+            &:hover {
+                transform: scale(1.1);
+            }
         }
     }
 }
@@ -19,7 +30,7 @@
     max-width: 50ch;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.6rem;
 }
 
 .formField {
