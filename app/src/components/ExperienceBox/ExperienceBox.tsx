@@ -13,8 +13,8 @@ export default function ExperienceBox({
 }: ExperienceBoxProps) {
   return (
     <div className={styles.experienceBoxContainer}>
-      <h2>{title}</h2>
-      <h3>{subtitle}</h3>
+      <h2 className={styles.experienceBoxContainer__title}>{title}</h2>
+      <h3 className={styles.experienceBoxContainer__subtitle}>{subtitle}</h3>
       <ul className={styles.experienceBoxContainer__skillList}>
         {responsibilities.map((responsibility, index) => (
           <li

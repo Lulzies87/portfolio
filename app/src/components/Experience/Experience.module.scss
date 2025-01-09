@@ -2,8 +2,23 @@
 
 .experienceContainer {
     min-height: 100vh;
-    align-content: center;
+    display: flex;
+    flex-direction: column;
     position: relative;
+    background-color: $notice;
+
+    &__transitionTop {
+        transform: rotate(180deg);
+        width: 100%;
+    }
+    
+    &__transitionBottom {
+        width: 100%;
+    }
+
+    &__title {
+        color: $muted;
+    }
 
     &__content {
         display: flex;
