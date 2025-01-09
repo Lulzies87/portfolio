@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { server } from "../../apiConfig";
+import { FaWhatsappSquare } from "react-icons/fa";
 import styles from "./Contact.module.scss";
 
 export default function Contact() {
@@ -132,6 +133,16 @@ export default function Contact() {
       <h1>
         Contact Me<span className="text-accent">.</span>
       </h1>
+      
+      <a
+        className={styles.contactContainer__contactButton}
+        href="https://wa.me/+972532276659"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaWhatsappSquare color="#25D366" size="32px" />
+      </a>
+
       {status && <div className={styles.status}>{status}</div>}
       <form
         ref={formRef}
