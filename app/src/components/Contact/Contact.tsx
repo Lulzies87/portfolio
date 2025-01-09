@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { server } from "../../apiConfig";
-import { FaWhatsappSquare, FaLinkedin } from "react-icons/fa";
+import { FaWhatsappSquare, FaLinkedin, FaGithubSquare } from "react-icons/fa";
 import styles from "./Contact.module.scss";
 
 export default function Contact() {
@@ -149,6 +149,14 @@ export default function Contact() {
         rel="noopener noreferrer"
       >
         <FaLinkedin color="#0A66C2" size="32px" />
+      </a>
+      <a
+        className={styles.contactContainer__contactButton}
+        href="https://github.com/Lulzies87"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaGithubSquare color="#181717" size="32px" />
       </a>
 
       {status && <div className={styles.status}>{status}</div>}
