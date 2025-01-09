@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { server } from "../../apiConfig";
+import { FaWhatsappSquare, FaLinkedin, FaGithubSquare } from "react-icons/fa";
 import styles from "./Contact.module.scss";
 
 export default function Contact() {
@@ -129,9 +130,37 @@ export default function Contact() {
 
   return (
     <div id="contact" className={`${styles.contactContainer} content`}>
-      <h1>
+      <h1 className={styles.contactContainer__title}>
         Contact Me<span className="text-accent">.</span>
       </h1>
+      
+      <div className={styles.contactContainer__buttonsContainer}>
+        <a
+          className={styles.contactContainer__buttonsContainer__contactButton}
+          href="https://wa.me/+972532276659"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaWhatsappSquare color="#25D366" size="32px" />
+        </a>
+        <a
+          className={styles.contactContainer__buttonsContainer__contactButton}
+          href="https://www.linkedin.com/in/lilachelayza/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaLinkedin color="#0A66C2" size="32px" />
+        </a>
+        <a
+          className={styles.contactContainer__buttonsContainer__contactButton}
+          href="https://github.com/Lulzies87"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaGithubSquare color="#181717" size="32px" />
+        </a>
+      </div>
+
       {status && <div className={styles.status}>{status}</div>}
       <form
         ref={formRef}
