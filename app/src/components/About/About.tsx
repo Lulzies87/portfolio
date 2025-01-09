@@ -70,10 +70,10 @@ export default function About() {
             className={styles.aboutContainer__innerWrap__textContainer__content}
           >
             {`I'm a mother, wife, coder, and gamer.
-                Motherhood inspired me to strive to be the best role model for my daughter, which led me to choose a new career path as a Fullstack Developer.
-                Recently, I successfully completed an intensive year-long Full Stack course where my curiosity and passion for coding grew immensely.
-                Currently, I'm developing this site as my portfolio and actively seeking opportunities to contribute and grow in the tech industry.
-                I am a lifelong learner who is driven to continuously acquire new knowledge and skills. I enjoy solving complex problems, working efficiently to improve processes, and handling assignments thoroughly and with attention to detail.
+                Motherhood inspired me to strive to be the best role model for my daughter, which led me to pursue a new career path as a Full Stack Developer.
+                I successfully completed an intensive year-long Full Stack course where my curiosity and passion for coding grew immensely.
+                I developed this site to showcase my abilities and it is regularly updated with my latest content.
+                As a lifelong learner, I am driven to continuously explore and apply cutting-edge technologies in web development. I thrive on solving complex problems, optimizing workflows, and delivering efficient solutions.
                 Life, for me, is about setting goals and working to achieve them, becoming a little better with each milestone I reach.`}
           </p>
         </div>
