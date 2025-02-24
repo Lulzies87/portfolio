@@ -29,9 +29,24 @@ export default function Projects() {
 
   return (
     <div id="projects" className={`${styles.projectsContainer} content`}>
-      <h1>Projects<span className="text-accent">.</span></h1>
+      <h1>
+        Projects<span className="text-accent">.</span>
+      </h1>
 
       <div ref={galleryRef} className={styles.projectsGallery}>
+        <ProjectCard
+          title="weVote (in progress)"
+          technologies={[
+            "React",
+            "Node.js",
+            "Express",
+            "MySQL",
+            "Tailwind CSS (v4.0)",
+            "Shadcn/ui",
+          ]}
+          imageUrl="/images/projects/weVote.png"
+          codeUrl="https://github.com/Lulzies87/weVote-react"
+        ></ProjectCard>
         <ProjectCard
           title="Castle Warrior"
           technologies={[
@@ -49,8 +64,8 @@ export default function Projects() {
         <ProjectCard
           title="This Website"
           technologies={[
-            "TypeScript",
             "React",
+            "TypeScript",
             "Node.js",
             "Nodemailer",
             "GSAP",
@@ -58,10 +73,8 @@ export default function Projects() {
           ]}
           imageUrl="/images/projects/portfolio.png"
           codeUrl="https://github.com/Lulzies87/portfolio"
-          demoUrl=""
         ></ProjectCard>
       </div>
-
     </div>
   );
 }

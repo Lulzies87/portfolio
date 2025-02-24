@@ -7,7 +7,7 @@ type ProjectCardProps = {
   technologies: string[];
   imageUrl: string;
   codeUrl: string;
-  demoUrl: string;
+  demoUrl?: string;
 };
 export default function ProjectCard({
   title,
@@ -28,9 +28,13 @@ export default function ProjectCard({
 
       <img src={imageUrl} alt="project picture" />
 
-      <div className={styles.buttonsContainer}>
-        <Button innerText="View Code" url={codeUrl}></Button>
-        <Button innerText="Live Demo" url={demoUrl}></Button>
+      <div
+        className={`${styles.buttonsContainer} ${
+          !demoUrl ? styles.centeredButton : ""
+        }`}
+      >
+        <Button innerText="View Code" url={codeUrl} />
+        {demoUrl && <Button innerText="Live Demo" url={demoUrl} />}
       </div>
     </div>
   );

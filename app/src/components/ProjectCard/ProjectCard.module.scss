@@ -1,31 +1,35 @@
 @import "@/styles/_variables";
 
 .projectContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1rem;
-    background-color: $muted;
-    width: 300px;
-    padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: $muted;
+  width: 300px;
+  padding: 1.4rem;
+  border-radius: $border-radius;
+  border: 1px solid $muted;
+  box-shadow: -4px -4px 10px $shadow;
+
+  img {
     border-radius: $border-radius;
-    border: 1px solid $muted;
-    box-shadow: -4px -4px 10px $shadow;
+  }
 
-    img {
-        border-radius: $border-radius;
-    }
+  .badgesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
 
-    .badgesContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.3rem;
-    }
+  .buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    .buttonsContainer {
-        display: flex;
-        justify-content: space-between;
-    }
+  .centeredButton {
+    justify-content: center;
+  }
 }
