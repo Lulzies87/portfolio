@@ -45,6 +45,7 @@ export default function Projects() {
             "Shadcn/ui",
           ]}
           imageUrl="/images/projects/weVote.png"
+          description="weVote is a polling platform designed for tenants in the same building, making decision-making simpler and more transparent. Admins can create detailed polls with deadlines, while tenants can vote and view results effortlessly."
           codeUrl="https://github.com/Lulzies87/weVote-react"
         ></ProjectCard>
         <ProjectCard
@@ -58,20 +59,15 @@ export default function Projects() {
             "AWS",
           ]}
           imageUrl="/images/projects/castle-warrior.png"
+          description="Castle Warrior is a 2D platformer where players battle through an enemy-infested castle and collect diamonds. The game features player registration and login, movement mechanics, a scoring system, and a combat system."
           codeUrl="https://github.com/Lulzies87/castle-warrior"
           demoUrl="https://castlewarrior.lulzies.top/"
         ></ProjectCard>
         <ProjectCard
           title="This Website"
-          technologies={[
-            "React",
-            "TypeScript",
-            "Node.js",
-            "Nodemailer",
-            "GSAP",
-            "AWS",
-          ]}
+          technologies={["React", "TypeScript", "GSAP", "AWS"]}
           imageUrl="/images/projects/portfolio.png"
+          description="This site showcases my projects, skills, and experience as a Full-Stack Developer. Explore my work, from web applications to game development, and see how I bring ideas to life with modern technologies."
           codeUrl="https://github.com/Lulzies87/portfolio"
         ></ProjectCard>
       </div>

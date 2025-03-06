@@ -6,6 +6,7 @@ type ProjectCardProps = {
   title: string;
   technologies: string[];
   imageUrl: string;
+  description: string;
   codeUrl: string;
   demoUrl?: string;
 };
@@ -13,6 +14,7 @@ export default function ProjectCard({
   title,
   technologies,
   imageUrl,
+  description,
   codeUrl,
   demoUrl,
 }: ProjectCardProps) {
@@ -27,6 +29,8 @@ export default function ProjectCard({
       </div>
 
       <img src={imageUrl} alt="project picture" />
+
+      <p>{description}</p>
 
       <div
         className={`${styles.buttonsContainer} ${

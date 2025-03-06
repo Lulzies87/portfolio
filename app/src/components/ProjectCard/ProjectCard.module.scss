@@ -3,7 +3,6 @@
 .projectContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 1rem;
   background-color: $muted;
   width: 300px;
@@ -16,15 +15,22 @@
     border-radius: $border-radius;
   }
 
+  p {
+    margin: 0;
+    flex-grow: 1;
+  }
+
   .badgesContainer {
+    min-height: 46px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-wrap: wrap;
     gap: 0.3rem;
   }
 
   .buttonsContainer {
+    justify-self: end;
     display: flex;
     justify-content: space-between;
   }
