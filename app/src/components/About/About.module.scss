@@ -4,23 +4,8 @@
     position: relative;
     min-height: 100vh;
     align-content: center;
-    background-color: $muted;
     padding: 2.5rem 2rem;
     border-radius: $border-radius;
-
-    &__transitionTop {
-        position: absolute;
-        transform: translateX(-50%);
-        top: 0;
-        width: 100%;
-    }
-    
-    &__transitionBottom {
-        position: absolute;
-        transform: translateX(-50%) rotate(180deg);
-        bottom: 0;
-        width: 100%;
-    }
 
     &__innerWrap {
         display: flex;

@@ -43,12 +43,6 @@ export default function About() {
 
   return (
     <div ref={aboutRef} id="about" className={styles.aboutContainer}>
-      <img
-        className={styles.aboutContainer__transitionTop}
-        src="/images/transition.png"
-        alt="transition-image"
-      />
-
       <div className={`${styles.aboutContainer__innerWrap} content`}>
         <img
           ref={imageRef}
@@ -78,12 +72,6 @@ export default function About() {
           </p>
         </div>
       </div>
-
-      <img
-        className={styles.aboutContainer__transitionBottom}
-        src="/images/transition.png"
-        alt="transition-image"
-      />
     </div>
   );
 }

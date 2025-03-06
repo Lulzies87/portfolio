@@ -35,34 +35,46 @@ export default function Skills() {
   });
 
   return (
-    <div id="skills" className={`${styles.skillsContainer} content`}>
-      <h1>
-        Skills<span className="text-accent">.</span>
-      </h1>
-      <ul ref={listRef} className={styles.skillsList}>
-        {[
-          "html",
-          "javascript",
-          "typescript",
-          "css",
-          "react",
-          "nodejs",
-          "express",
-          "mongodb",
-          "mysql",
-          "git",
-          "github",
-          "npm",
-        ].map((skill) => (
-          <li key={skill}>
-            <img
-              src={`/images/skills/${skill}.png`}
-              draggable="false"
-              alt={`${skill} icon`}
-            />
-          </li>
-        ))}
-      </ul>
+    <div id="skills" className={styles.skillsContainer}>
+      <img
+        className={styles.skillsContainer__transitionTop}
+        src="/images/transition.png"
+        alt="transition-image"
+      />
+      <div className={`${styles.skillsContainer__innerWrap} content`}>
+        <h1>
+          Skills<span className="text-accent">.</span>
+        </h1>
+        <ul ref={listRef} className={styles.skillsList}>
+          {[
+            "html",
+            "javascript",
+            "typescript",
+            "css",
+            "react",
+            "nodejs",
+            "express",
+            "mongodb",
+            "mysql",
+            "git",
+            "github",
+            "npm",
+          ].map((skill) => (
+            <li key={skill}>
+              <img
+                src={`/images/skills/${skill}.png`}
+                draggable="false"
+                alt={`${skill} icon`}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+      <img
+        className={styles.skillsContainer__transitionBottom}
+        src="/images/transition.png"
+        alt="transition-image"
+      />
     </div>
   );
 }
