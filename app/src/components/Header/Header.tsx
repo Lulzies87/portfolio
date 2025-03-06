@@ -16,7 +16,6 @@ export default function Header() {
     const tl = gsap.timeline();
 
     tl.from(headerRef.current, {
-      delay: 1.8,
       scale: 0,
       duration: 0.2,
     })
