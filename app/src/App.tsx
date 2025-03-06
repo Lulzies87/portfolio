@@ -1,4 +1,3 @@
-import Contact from "./components/Contact/Contact.tsx";
 import Cover from "./components/Cover/Cover.tsx";
 import Experience from "./components/Experience/Experience.tsx";
 import Header from "./components/Header/Header.tsx";
@@ -12,11 +11,10 @@ export default function App() {
     <>
       <Header />
       <Cover />
-      <About />
-      <Skills />
-      <Experience />
       <Projects />
-      <Contact />
+      <Skills />
+      <About />
+      <Experience />
     </>
   );
 }
