@@ -1,60 +1,59 @@
 @import "@/styles/_variables";
 
 .aboutContainer {
-    position: relative;
-    min-height: 100vh;
-    align-content: center;
-    padding: 2.5rem 2rem;
-    border-radius: $border-radius;
+  min-height: 100%;
+  width: 100%;
+  align-content: center;
+  padding: 2.5rem 2rem;
+  border-radius: $border-radius;
 
-    &__innerWrap {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-        text-align: left;
+  &__innerWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    text-align: left;
 
-        &__image {
-            border-radius: 50%;
-        }
-
-        &__textContainer {
-            display: flex;
-            flex-direction: column;
-            position: relative;
-
-            &__title {
-                margin: 0;
-            }
-
-            &__content {
-                max-width: 71ch;
-                white-space: pre-line;
-                margin: 0;
-            }
-        }
+    &__image {
+      border-radius: 50%;
     }
+
+    &__textContainer {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      &__title {
+        margin: 0;
+      }
+
+      &__content {
+        max-width: 71ch;
+        white-space: pre-line;
+        margin: 0;
+      }
+    }
+  }
 }
 
 @media (max-width: 1099px) {
-    .aboutContainer {
-        padding: 64px 0;
+  .aboutContainer {
+    padding: 64px 0;
 
-        &__innerWrap {
-            flex-direction: column;
-            justify-content: center;
-            gap: 0;
-            min-height: auto;
+    &__innerWrap {
+      flex-direction: column;
+      justify-content: center;
+      gap: 0;
+      min-height: auto;
 
-            &__image {
-                width: clamp(300px, 70%, 400px);
-            }
-    
-            &__textContainer__title {
-                text-align: center;
-                margin: 0.9rem 0 0.6rem 0;
-            }
-        }
+      &__image {
+        width: clamp(300px, 70%, 400px);
+      }
 
+      &__textContainer__title {
+        text-align: center;
+        margin: 0.9rem 0 0.6rem 0;
+      }
     }
+  }
 }

@@ -8,7 +8,7 @@ export default function Header() {
   const headerRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLButtonElement>(null);
   const navLinksRef = useRef<HTMLUListElement>(null);
-  const sections = ["projects", "skills", "about", "experience"];
+  const sections = ["about", "projects", "skills", "experience"];
 
   useLayoutEffect(() => {
     if (!navLinksRef.current)

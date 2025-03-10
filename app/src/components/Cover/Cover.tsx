@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Cover.module.scss";
+import About from "../About/About";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,21 +35,20 @@ export default function Cover() {
   });
 
   return (
-    <div id="cover" className={`${styles.coverContainer} content`}>
-      <div className={styles.positioningContainer}>
-        <div className={styles.titleContainer}>
-          <img
-            ref={underlineRef}
-            src="/images/underline.png"
-            alt="underline"
-            className={styles.titleContainer__underlineImage}
-          />
+    <div id="cover" className={styles.coverContainer}>
+      <div className={styles.titleContainer}>
+        <img
+          ref={underlineRef}
+          src="/images/underline.png"
+          alt="underline"
+          className={styles.titleContainer__underlineImage}
+        />
 
-          <h1 ref={titleRef} className={styles.titleContainer__title}>
-            Hi! I'm Lilach<span className="text-accent">.</span>
-          </h1>
-        </div>
+        <h1 ref={titleRef} className={styles.titleContainer__title}>
+          Hi! I'm Lilach<span className="text-accent">.</span>
+        </h1>
       </div>
+      <About />
     </div>
   );
 }
