@@ -1,23 +1,6 @@
-@import "@/styles/_variables.scss";
-
 .skillsContainer {
-  position: relative;
   height: 100vh;
   align-content: center;
-  background-color: $muted;
-  &__transitionTop {
-    position: absolute;
-    transform: translateX(-50%);
-    top: 0;
-    width: 100%;
-  }
-
-  &__transitionBottom {
-    position: absolute;
-    transform: translateX(-50%) rotate(180deg);
-    bottom: 0;
-    width: 100%;
-  }
 }
 
 .skillsList {

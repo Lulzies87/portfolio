@@ -35,13 +35,8 @@ export default function Skills() {
   });
 
   return (
-    <div id="skills" className={styles.skillsContainer}>
-      <img
-        className={styles.skillsContainer__transitionTop}
-        src="/images/transition.png"
-        alt="transition-image"
-      />
-      <div className={`${styles.skillsContainer__innerWrap} content`}>
+    <div id="skills" className={`${styles.skillsContainer} content`}>
+      <div className={styles.skillsContainer__innerWrap}>
         <h1>
           Skills<span className="text-accent">.</span>
         </h1>
@@ -70,11 +65,6 @@ export default function Skills() {
           ))}
         </ul>
       </div>
-      <img
-        className={styles.skillsContainer__transitionBottom}
-        src="/images/transition.png"
-        alt="transition-image"
-      />
     </div>
   );
 }
