@@ -8,7 +8,9 @@
     background-color: $notice;
 
     &__transitionTop {
+        position: relative;
         transform: rotate(180deg);
+        top: -1px;
         width: 100%;
     }
     
