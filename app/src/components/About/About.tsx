@@ -63,12 +63,15 @@ export default function About() {
           <p
             className={styles.aboutContainer__innerWrap__textContainer__content}
           >
-            {`Full Stack Development isn’t just my profession - it’s my passion.
-            With a strong foundation in both front-end and back-end technologies, I love bringing every component together in perfect harmony, ensuring seamless communication between them.
-            Problem-solving is my strength, workflow optimization is second nature, and building high-performance applications is what drives me.
-            I am committed to continuous learning, staying ahead of emerging technologies, and refining my skills to push the boundaries of web development.
-            I'm looking for a dynamic work environment where I can be challenged, innovate, and grow as a developer.
-            This site was developed to showcase my journey and projects that reflect my dedication to clean code, innovation, and seamless user experiences.`}
+            {`Hi, I'm Lilach, a Full-Stack Developer with hands-on experience in TypeScript, React, Node.js, Express, MongoDB, and MySQL.
+            I have a solid foundation in object-oriented programming as well as test-driven development.
+            I enjoy solving complex problems, optimizing workflows, and building high-quality applications.
+            Whether working under tight deadlines or tackling new challenges, I adapt quickly, communicate effectively, and always strive for clean, maintainable code.
+            Currently, I'm independently learning Computer Science through Harvard's CS50 and preparing for the AWS Cloud Practitioner exam in May 2025.
+            Technology excites me, and I'm eager to learn and push the boundaries of what I can build.
+            This site is a glimpse into my journey - where curiosity meets code. 🚀
+
+`}
           </p>
         </div>
       </div>
