@@ -69,9 +69,7 @@ export default function About() {
             Whether working under tight deadlines or tackling new challenges, I adapt quickly, communicate effectively, and always strive for clean, maintainable code.
             Currently, I'm independently learning Computer Science through Harvard's CS50 and preparing for the AWS Cloud Practitioner exam in May 2025.
             Technology excites me, and I'm eager to learn and push the boundaries of what I can build.
-            This site is a glimpse into my journey - where curiosity meets code. 🚀
-
-`}
+            This site is a glimpse into my journey - where curiosity meets code. 🚀`}
           </p>
         </div>
       </div>
