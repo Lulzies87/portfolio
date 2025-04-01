@@ -30,14 +30,14 @@ export default function Experience() {
   }, []);
 
   return (
-    <div id="experience" className={styles.experienceContainer}>
+    <div className={styles.experienceContainer}>
       <img
         className={styles.experienceContainer__transitionTop}
         src="/images/experience-transition.png"
         alt="transition-image"
       />
 
-      <div className="content">
+      <div id="experience" className="content">
         <h1 className={styles.experienceContainer__title}>
           Experience<span className="text-accent">.</span>
         </h1>

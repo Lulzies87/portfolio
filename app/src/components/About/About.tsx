@@ -6,34 +6,40 @@ import styles from "./About.module.scss";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const underlineRef = useRef<HTMLImageElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: aboutRef.current,
-          start: "top bottom",
-          toggleActions: "restart none none reset",
-        },
-      });
+      const tl = gsap.timeline({});
 
-      tl.from(imageRef.current, {
+      tl.from(titleRef.current, {
+        x: "-100%",
+        opacity: 0,
+        ease: "power4",
+        duration: 0.5,
+        immediateRender: false,
+      }).fromTo(
+        underlineRef.current,
+        { clipPath: "inset(0 100% 0 0)" },
+        { clipPath: "inset(0 0% 0 0)", ease: "power4" }
+      );
+
+      gsap.from(imageRef.current, {
         scale: 0,
         ease: "power4",
         duration: 1,
-      }).from(
-        contentRef.current,
-        {
-          opacity: 0,
-          y: 50,
-          ease: "power4",
-          duration: 1,
-        },
-        "-=0.5"
-      );
+      });
+
+      gsap.from(contentRef.current, {
+        opacity: 0,
+        y: 50,
+        ease: "power4",
+        duration: 1,
+      });
     });
 
     return () => {
@@ -43,6 +49,19 @@ export default function About() {
 
   return (
     <div ref={aboutRef} id="about" className={styles.aboutContainer}>
+      <div className={styles.titleContainer}>
+        <img
+          ref={underlineRef}
+          src="/images/underline.png"
+          alt="underline"
+          className={styles.titleContainer__underlineImage}
+        />
+
+        <h1 ref={titleRef} className={styles.titleContainer__title}>
+          Hi! I'm Lilach<span className="text-accent">.</span>
+        </h1>
+      </div>
+
       <div className={`${styles.aboutContainer__innerWrap} content`}>
         <img
           ref={imageRef}

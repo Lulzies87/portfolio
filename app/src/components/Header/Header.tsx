@@ -17,20 +17,21 @@ export default function Header() {
 
     tl.from(headerRef.current, {
       scale: 0,
-      duration: 0.2,
+      duration: 0.1,
     })
       .from(headerRef.current, {
         width: "56px",
         ease: "bounce",
+        duration: 0.3,
       })
       .from(logoRef.current, {
         display: "none",
         scale: 0,
-        duration: 0.1,
+        duration: 0.05,
       })
       .from(navLinksRef.current.children, {
         opacity: 0,
-        stagger: 0.1,
+        stagger: 0.05,
         x: -16,
       });
 

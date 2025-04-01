@@ -28,14 +28,14 @@ export default function Projects() {
   }, []);
 
   return (
-    <div id="projects" className={styles.projectsContainer}>
+    <div className={styles.projectsContainer}>
       <img
         className={styles.projectsContainer__transitionTop}
         src="/images/transition.png"
         alt="transition-image"
       />
 
-      <div className={`${styles.projectsContainer__innerWrap} content`}>
+      <div id="projects" className={`${styles.projectsContainer__innerWrap} content`}>
         <h1>
           Projects<span className="text-accent">.</span>
         </h1>
