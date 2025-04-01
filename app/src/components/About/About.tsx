@@ -47,7 +47,7 @@ export default function About() {
         <img
           ref={imageRef}
           className={styles.aboutContainer__innerWrap__image}
-          src="/images/profilePicture2.jpg"
+          src="/images/profilePicture.jpg"
           alt="profile-image"
         />
 
