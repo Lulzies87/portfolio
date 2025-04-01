@@ -1,0 +1,43 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22.13.1'
+
+    - name: Install dependencies
+      working-directory: ./app
+      run: npm install
+
+    - name: Build project
+      working-directory: ./app
+      run: npm run build
+
+    - name: Prepare SSH key
+      run: |
+        echo "${{ secrets.EC2_SSH_KEY }}" > private_key.pem
+        chmod 600 private_key.pem
+
+    - name: Copy files to EC2
+      run: |
+        scp -o StrictHostKeyChecking=no -i private_key.pem -r app/dist/* ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:${{ secrets.EC2_PATH }}/dist/
+
+    - name: Restart NGINX
+      run: |
+        ssh -o StrictHostKeyChecking=no -i private_key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} "sudo systemctl restart nginx"
+
+    - name: Cleanup
+      run: rm -f private_key.pem
