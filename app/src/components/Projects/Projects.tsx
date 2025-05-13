@@ -69,7 +69,7 @@ export default function Projects() {
             imageUrl="/images/projects/castle-warrior.png"
             description="Castle Warrior is a 2D platformer where players battle through an enemy-infested castle and collect diamonds. The game features player registration and login, movement mechanics, a scoring system, and a combat system."
             codeUrl="https://github.com/Lulzies87/castle-warrior"
-            demoUrl="https://castlewarrior.lulzies.top/"
+            demoUrl="https://castlewarrior.lilachelayza.com/"
           ></ProjectCard>
           <ProjectCard
             title="This Website"
