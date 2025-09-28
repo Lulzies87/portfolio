@@ -1,9 +1,18 @@
-name: Deploy to EC2
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
       - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
@@ -11,10 +20,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '22.13.1'
 
@@ -26,18 +35,21 @@ jobs:
       working-directory: ./app
       run: npm run build
 
-    - name: Prepare SSH key
-      run: |
-        echo "${{ secrets.EC2_SSH_KEY }}" > private_key.pem
-        chmod 600 private_key.pem
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
 
-    - name: Copy files to EC2
-      run: |
-        scp -o StrictHostKeyChecking=no -i private_key.pem -r app/dist/* ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:${{ secrets.EC2_PATH }}/dist/
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './app/dist'
 
-    - name: Restart NGINX
-      run: |
-        ssh -o StrictHostKeyChecking=no -i private_key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} "sudo systemctl restart nginx"
-
-    - name: Cleanup
-      run: rm -f private_key.pem
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build-and-deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
