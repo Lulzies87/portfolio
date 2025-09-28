@@ -35,12 +35,23 @@ export default function Projects() {
         alt="transition-image"
       />
 
-      <div id="projects" className={`${styles.projectsContainer__innerWrap} content`}>
+      <div
+        id="projects"
+        className={`${styles.projectsContainer__innerWrap} content`}
+      >
         <h1>
           Projects<span className="text-accent">.</span>
         </h1>
-        
+
         <div ref={galleryRef} className={styles.projectsGallery}>
+          <ProjectCard
+            title="High-Tech Quest"
+            technologies={["Phaser", "TypeScript", "OOP", "Team Project", "Agile", "Jira"]}
+            imageUrl="/images/projects/HTQ.png"
+            description="HTQ is a A 2D top-down web game that follows a Junior on a quest to land their first role in the high-tech industry. Features interactive game mechanics, character progression, and level flow."
+            codeUrl="https://github.com/casual-cat/HighTech-Quest"
+            demoUrl="https://main.d33mbla2rkkdlv.amplifyapp.com/"
+          ></ProjectCard>
           <ProjectCard
             title="weVote (in progress)"
             technologies={[
@@ -55,21 +66,6 @@ export default function Projects() {
             description="weVote is a polling platform designed for tenants in the same building, making decision-making simpler and more transparent. Admins can create detailed polls with deadlines, while tenants can vote and view results effortlessly."
             codeUrl="https://github.com/Lulzies87/weVote-react"
             demoUrl="https://lulzies87.github.io/weVote-react/"
-          ></ProjectCard>
-          <ProjectCard
-            title="Castle Warrior"
-            technologies={[
-              "TypeScript",
-              "HTML5 Canvas",
-              "Node.js",
-              "Express",
-              "MongoDB",
-              "AWS",
-            ]}
-            imageUrl="/images/projects/castle-warrior.png"
-            description="Castle Warrior is a 2D platformer where players battle through an enemy-infested castle and collect diamonds. The game features player registration and login, movement mechanics, a scoring system, and a combat system."
-            codeUrl="https://github.com/Lulzies87/castle-warrior"
-            demoUrl="https://castlewarrior.lilachelayza.com/"
           ></ProjectCard>
           <ProjectCard
             title="This Website"
