@@ -82,13 +82,12 @@ export default function About() {
           <p
             className={styles.aboutContainer__innerWrap__textContainer__content}
           >
-            {`Hi, I'm Lilach, a Full-Stack Developer with hands-on experience in TypeScript, React, Node.js, Express, MongoDB, and MySQL.
-            I have a solid foundation in object-oriented programming as well as test-driven development.
-            I enjoy solving complex problems, optimizing workflows, and building high-quality applications.
-            Whether working under tight deadlines or tackling new challenges, I adapt quickly, communicate effectively, and always strive for clean, maintainable code.
-            Currently, I'm independently learning Computer Science through Harvard's CS50 and preparing for the AWS Cloud Practitioner exam in May 2025.
+            {`Hi, I'm Lilach, a Full-Stack Developer experienced with TypeScript, React, Node.js, Express, MongoDB, and MySQL.
+            I have a strong foundation in OOP, and I love building applications that are both functional and maintainable.
+            I adapt quickly to new challenges, communicate clearly, and thrive in collaborative environments.
+            Currently, I'm developing an indie game together with a small team (Project Manager, UI UX Designer and DevOps Engineer), applying both technical skills and Agile practices.
             Technology excites me, and I'm eager to learn and push the boundaries of what I can build.
-            This site is a glimpse into my journey - where curiosity meets code. 🚀`}
+            This site is a glimpse into my journey - feel free to look around! 🚀`}
           </p>
         </div>
       </div>
