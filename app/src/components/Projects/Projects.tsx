@@ -65,7 +65,7 @@ export default function Projects() {
             imageUrl="/images/projects/weVote.png"
             description="weVote is a polling platform designed for tenants in the same building, making decision-making simpler and more transparent. Admins can create detailed polls with deadlines, while tenants can vote and view results effortlessly."
             codeUrl="https://github.com/Lulzies87/weVote-react"
-            demoUrl="https://lulzies87.github.io/weVote-react/"
+            demoUrl="https://wevote.lilachelayza.com/"
           ></ProjectCard>
           <ProjectCard
             title="This Website"
